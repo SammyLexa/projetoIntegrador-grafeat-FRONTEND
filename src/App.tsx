@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css'
+import Cadastrar from './assets/pages/cadastrarUsuario/CadastrarUsuario'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
    <>
       <BrowserRouter>
