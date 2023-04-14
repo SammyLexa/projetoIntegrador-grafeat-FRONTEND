@@ -23,11 +23,11 @@ function Login() {
                             <TextField id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth></TextField>
                             <TextField id='senha' label='senha' variant='outlined' name='senha' margin='normal' fullWidth type='password'></TextField>
                             <Box marginTop={2} textAlign='center'>
-                                {/* <Link to='/home'> */}
-                                <Button type='submit' variant='contained' color='primary'>
-                                    Logar
-                                </Button>
-                                {/* </Link> */}
+                                <Link to='/home'>
+                                    <Button type='submit' variant='contained' color='primary'>
+                                        Logar
+                                    </Button>
+                                </Link>
                             </Box>
                         </form>
 
@@ -35,9 +35,9 @@ function Login() {
                             <Box marginRight={0.5}>
                                 <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta? </Typography>
                             </Box>
-                            {/* <Link to='/cadastrar'> */}
+                            <Link to='/cadastrar-usuario'>
                                 <Typography variant='subtitle1' align='center' style={{ fontWeight: 'bold' }}>Cadastre-se</Typography>
-                            {/* </Link> */}
+                            </Link>
                         </Box>
                     </Box>
                 </Grid>

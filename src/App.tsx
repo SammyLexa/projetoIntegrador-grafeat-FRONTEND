@@ -8,18 +8,20 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
-   <>
+    <>
       <BrowserRouter>
-        {/* <Navbar /> */}
+        <Navbar />
         <div style={{ minHeight: '100vh' }}>
           <Routes> // Antigo Switch
-            {/* <Route path="/" element={<Login />} /> */}
-            {/* 
-            <Route path="/login" element={<Login />} /> */}
-            {/* <Route path="/home" element={<Home />} /> */}
+            <Route path="/" element={<Login />} />
+
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/sobre-nos" element={<SobreNos />} />
+            <Route path="/cadastrar-usuario" element={<CadastrarUsuario />} />
           </Routes>
         </div>
-        {/* <Footer /> */}
+        <Footer/>
       </BrowserRouter>
     </>
   )
