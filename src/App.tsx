@@ -1,18 +1,15 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
-import Home from "./assets/pages/home/Home";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
+import Cadastrar from './assets/pages/cadastrarUsuario/CadastrarUsuario'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
+
 
 function App() {
-
   return (
     <>
-      <BrowserRouter>
-      <div style={{ minHeight: '100vh' }}>
-        <Routes> // Antigo Switch
-          <Route path="" element={<Home />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
     </>
   )
 }
