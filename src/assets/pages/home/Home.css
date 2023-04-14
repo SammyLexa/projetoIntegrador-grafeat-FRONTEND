@@ -1,0 +1,64 @@
+.container {
+    padding-top: 2rem;
+  }
+
+  @font-face {
+    font-family: 'Don Graffiti';
+    src: url('../fonts/DonGraffiti.otf') format('opentype'); 
+  }
+  
+  .title {
+    color: #fff;
+    font-family: 'Don Graffiti';
+  }
+  
+  .subtitle {
+    color: #fff;
+    font-family: 'Don Graffiti';
+  }
+  
+  .banner {
+    background-image: url('../img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-opacity: 0.5;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .destaque-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .destaque {
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+  }
+  
+  .destaque img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .destaque-footer {
+    text-align: center;
+    color:  rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    opacity: 0.8;
+  }
+  
+  .destaque-title {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .destaque-description {
+    font-size: 14px;
+    margin: 5px 0 0;
+  }
