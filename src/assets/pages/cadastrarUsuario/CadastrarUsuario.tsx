@@ -4,7 +4,7 @@ import { Grid, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import React from 'react';
-import './Cadastrar.css'
+import './CadastrarUsuario.css'
 
 function Cadastrar(){
     return(
