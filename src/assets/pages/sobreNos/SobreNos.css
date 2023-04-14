@@ -1,0 +1,80 @@
+.container {
+    perspective: 1px;
+    transform-style: preserve-3d;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.mainContainer_titulo{
+    font-size: 8rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.mainContainer {
+    text-align: center;
+    color: var(--color);
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://i.imgur.com/mo8PwMa.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container_card {
+    margin-top: 4rem;
+    position: relative;
+    display: block;
+    background-color: white;
+    z-index: 1;
+}
+
+.card {
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    height: 30vh;
+    margin: auto;
+    padding: 1rem;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.card_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4rem;
+    height: 90%;
+}
+
+.info_secao {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.secao_titulo{
+    font-size: 2rem;
+}
+
+.info_link{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 20%;
+    border-radius: 15px;
+}
