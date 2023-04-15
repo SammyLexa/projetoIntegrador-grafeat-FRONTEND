@@ -7,10 +7,10 @@ const Home: React.FC = () => {
   return (
     <Container maxWidth="md" className="container">
       <div className="banner">
-        <Typography variant="h1" align="center" gutterBottom className="teste2">
+        <Typography variant="h1" align="center" gutterBottom style={{color:"white"}}>
           Bem-vindo a Loja Grafeat!
         </Typography>
-        <Typography variant="subtitle1" align="center" gutterBottom className="teste1">
+        <Typography variant="subtitle1" align="center" gutterBottom style={{color:"white"}}>
           Confira nossos produtos incríveis e aproveite as ofertas!
         </Typography>
       </div>
