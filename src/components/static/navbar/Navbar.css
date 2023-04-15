@@ -2,3 +2,8 @@
     text-decoration: none;
 }
 
+.navbarFundo{
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
