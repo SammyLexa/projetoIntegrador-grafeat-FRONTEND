@@ -27,8 +27,7 @@
     gap: 2rem;
     position: relative;
     display: block;
-    background-color: white;
-    /*z-index: 1;*/
+    background-color: var(--cor-principal);
 }
 
 .card {
@@ -41,17 +40,17 @@
     gap: 4rem;
     filter: grayscale(50%);
 
-    --c:linear-gradient(#000 0 0); /* update the color here */
+    --c:linear-gradient(#fff 0 0); /* update the color here */
   
-  background: var(--c), var(--c);
-  background-size: 9em .1em;
-  background-position:50% 100%;
-  background-repeat: no-repeat;
-  transition: .3s linear, background-size .3s .2s linear;
+    background: var(--c), var(--c);
+    background-size: 9em .1em;
+    background-position:50% 100%;
+    background-repeat: no-repeat;
+    transition: .3s linear, background-size .3s .2s linear;
 }
 
 .card:hover{
-    background-color: #423d3d27;
+    background-color: #ffffff25;
     transition: 1s;
     filter: grayscale(0%);
     background-size: 50% .1em;
@@ -73,8 +72,12 @@
 
 .secao_titulo{
     font-size: 2rem;
-    color: var(--cor-secundaria);
+    color: var(--cor-terciaria);
     font-weight: 700;
+}
+
+.secao_texto{
+    color: #fff;
 }
 
 .info_link{
