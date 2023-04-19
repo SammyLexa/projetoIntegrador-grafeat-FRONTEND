@@ -42,7 +42,7 @@ function CadastrarVendedor(){
     useEffect(() => {
         if (vendedorResult.id != 0) {
             navigate("/login")
-        }
+        } console.log(vendedorResult)
     }, [vendedorResult])
 
 
@@ -86,15 +86,16 @@ function CadastrarVendedor(){
                         >
                         Cadastre-se
                         </Typography>
-                        <TextField required value={vendedor.nomeVendedor} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Nome' margin='normal' id='nomeVendedor' fullWidth />
-                        <TextField type='email' value={vendedor.usuario} required onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Email' margin='normal' id='usuario' fullWidth />
-                        <TextField value={vendedor.senha} required onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Senha' margin='normal' id='senha' type='password' fullWidth />
+                        <TextField required name='nomeVendedor' value={vendedor.nomeVendedor} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Nome' margin='normal' id='nomeVendedor' fullWidth />
+                        <TextField name="usuario"  value={vendedor.usuario} required type="email" onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Email' margin='normal' id='usuario' fullWidth />
+                        <TextField name='senha' value={vendedor.senha} required onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Senha' margin='normal' id='senha' type='password' fullWidth />
                         <Typography >*Deve conter pelo menos 8 caracteres</Typography>
-                        <TextField value={confirmarSenha} required onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='confirmar senha' margin='normal' id='confirmarSenha' type='password' fullWidth />
-                        <TextField value={vendedor.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} variant='outlined' label='Link da foto' margin='normal' id='foto' fullWidth />
-                        <TextField value={vendedor.dataDeNascimento} required onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Data de nascimento' margin='normal' id='dataDeNascimento' fullWidth  />
-                        <TextField value={vendedor.localidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Localidade' margin='normal' id='localidade' fullWidth  />
-                        <TextField value={vendedor.tipoDePagamento} required onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Tipo de pagamento' margin='normal' id='tipoDePagamento' fullWidth  />
+                        <TextField name='confirmarSenha' value={confirmarSenha} required onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} variant='outlined' label='confirmar senha' margin='normal' id='confirmarSenha' type='password' fullWidth />
+                        <TextField name='foto' value={vendedor.foto} required onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Link da foto' margin='normal' id='foto' fullWidth />
+                        <Typography >*O link deve conter pelo menos 10 caracteres</Typography>
+                        <TextField name='dataDeNascimento' value={vendedor.dataDeNascimento} required onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Data de nascimento' margin='normal' id='dataDeNascimento' fullWidth  />
+                        <TextField name='localidade' value={vendedor.localidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Localidade' margin='normal' id='localidade' fullWidth  />
+                        <TextField name='tipoDePagamento' value={vendedor.tipoDePagamento} required onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Tipo de pagamento' margin='normal' id='tipoDePagamento' fullWidth  />
                         <Box marginTop={2} textAlign='center'>
                                 <Button type='submit' variant='contained' color='primary'>
                                     cadastrar
