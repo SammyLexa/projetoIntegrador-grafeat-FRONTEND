@@ -1,6 +1,6 @@
 # Grafeat: Parte da Arte 
  
-## ![WhatsApp Image 2023-03-30 at 11 11 35](https://user-images.githubusercontent.com/123910027/229203596-92f71f75-9f66-42eb-b159-7d43e1e6f6ad.jpeg)
+## ![logo Grafeat](https://ik.imagekit.io/wall90gifs/Grafeat/grafeat-logo-large.png?updatedAt=1681674131228)
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=flat-square)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -174,7 +174,7 @@ Estou animada para contribuir com minhas habilidades e aprender com desenvolvedo
 Entendo que esta profissão requer um alto nível de adaptabilidade e habilidades de resolução de problemas, e estou confiante em minhas capacidades. Não tenho medo de fazer perguntas ou buscar ajuda quando necessário e estou empenhada em me manter atualizada com as últimas tendências e melhores práticas para ser uma desenvolvedora bem-sucedida e de excelência.
 
 ##
-<img width="200px" src="https://user-images.githubusercontent.com/123910027/227934144-deab4127-fa4a-48e3-9653-71033e1ba670.jpg" alt="Wallace"></br>
+<img width="200px" src="https://ik.imagekit.io/wall90gifs/Profile/pfp-PhotoRoom.png?updatedAt=1681675226593" alt="Wallace"></br>
   - <a href="https://www.linkedin.com/in/wallacesb/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank">
   - <a href="https://github.com/Wall90s" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank">
 <h3>Wallace Silva Brito</h3>
