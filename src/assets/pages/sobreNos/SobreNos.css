@@ -24,21 +24,37 @@
 }
 .container_card {
     padding: 4rem 0;
+    gap: 2rem;
     position: relative;
     display: block;
-    background-color: white;
-    /*z-index: 1;*/
+    background-color: var(--cor-principal);
 }
 
 .card {
-    border-radius: 15px;
     display: flex;
     justify-content: center;
     width: 60%;
-    height: 30vh;
+    height: 40vh;
     margin: auto;
-    padding: 1rem;
+    padding: 3rem;
     gap: 4rem;
+    filter: grayscale(50%);
+
+    --c:linear-gradient(#fff 0 0); /* update the color here */
+  
+    background: var(--c), var(--c);
+    background-size: 9em .1em;
+    background-position:50% 100%;
+    background-repeat: no-repeat;
+    transition: .3s linear, background-size .3s .2s linear;
+}
+
+.card:hover{
+    background-color: #ffffff25;
+    transition: 1s;
+    filter: grayscale(0%);
+    background-size: 50% .1em;
+    background-position: 10% 100%, 90% 100%;
 }
 
 .card_info {
@@ -46,7 +62,6 @@
     align-items: center;
     text-align: center;
     gap: 4rem;
-    height: 90%;
 }
 
 .info_secao {
@@ -57,6 +72,12 @@
 
 .secao_titulo{
     font-size: 2rem;
+    color: var(--cor-terciaria);
+    font-weight: 700;
+}
+
+.secao_texto{
+    color: #fff;
 }
 
 .info_link{
@@ -66,7 +87,6 @@
 }
 
 .img {
-
     border-radius: 15px;
 }
 
@@ -85,6 +105,7 @@
         margin: none;
         padding: none;
         gap: 1rem;
+        border: none;
     }
     .card_info{
         width: 80%;

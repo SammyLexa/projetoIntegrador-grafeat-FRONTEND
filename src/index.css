@@ -44,16 +44,22 @@ table {
 	border-spacing: 0;
 }
 
+@font-face {
+    font-family: 'Ubuntu', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap'); 
+  }
+
 :root{
 	--cor-principal:#423D3D;
 	--cor-secundaria: #5941A9;
 	--cor-terciaria: #EB2474;
 	--cor-quartaria: #41EAD4;
 	--cor-quintaria: #FBFF12;
+	--fonte-principal: 'Ubuntu', sans-serif;
 }
-
 
 body{
 	background: rgb(66,61,61);
-background: linear-gradient(180deg, rgba(66,61,61,1) 15%, rgba(89,65,169,1) 53%, rgba(235,36,116,1) 85%);;
+	background: linear-gradient(180deg, rgba(66,61,61,1) 15%, rgba(89,65,169,1) 53%, rgba(235,36,116,1) 85%);;
+	font-family: var(--fonte-principal);
 }
