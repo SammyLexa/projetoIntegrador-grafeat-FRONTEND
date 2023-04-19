@@ -4,7 +4,7 @@ import './App.css'
 import Navbar from './components/static/navbar/Navbar';
 import Login from './assets/pages/login/Login';
 import SobreNos from './assets/pages/sobreNos/SobreNos';
-import CadastrarUsuario from './assets/pages/cadastrarUsuario/CadastrarUsuario';
+import CadastrarUsuario from './assets/pages/cadastrarUsuario/CadastrarVendedor';
 import Home from './assets/pages/home/Home';
 import Footer from './components/static/footer/Footer';
 
