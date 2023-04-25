@@ -1,0 +1,28 @@
+.textfieldLogin{
+    background-color: whitesmoke;
+  }
+
+  .tituloLogin{
+    font-size: 3vw !important;
+    color: whitesmoke !important;
+    padding-top: 10% !important;
+    font-weight: bold;
+  }
+
+  .btnLogin{
+    width: 50%
+  }
+
+  .linkLogin{
+    text-decoration: none !important;
+    font-weight: bold !important;
+    color: black !important;
+    font-style: italic !important;
+    font-size: 1.5vw !important;
+    padding-bottom: 10% !important;
+  }
+
+  .ctaLogin{
+    font-size: 1.5vw !important;
+    padding-bottom: 10% !important;
+  }
