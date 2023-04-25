@@ -92,31 +92,33 @@ function Login() {
                                 color="textPrimary"
                                 component="h3"
                                 align="center"
-                                style={{ fontWeight: "bold" }}
+                                className='tituloLogin'
                             >
                                 Entrar
                             </Typography>
                             <TextField onChange={(event: ChangeEvent<HTMLInputElement>) => updatedModel(event)}
                             value={vendedorLogin.usuario}
                                 id="usuario"
-                                label="usuário"
+                                label="Usuário"
                                 variant="outlined"
                                 name="usuario"
                                 margin="normal"
                                 fullWidth
+                                className='textfieldLogin'
                             ></TextField>
                             <TextField onChange={(event: ChangeEvent<HTMLInputElement>) => updatedModel(event)}
                             value={vendedorLogin.senha}
                                 id="senha"
-                                label="senha"
+                                label="Senha"
                                 variant="outlined"
                                 name="senha"
                                 margin="normal"
                                 fullWidth
                                 type="password"
+                                className='textfieldLogin'
                             ></TextField>
                             <Box marginTop={2} textAlign="center">
-                                    <Button type="submit" variant="contained" color="primary">
+                                    <Button type="submit" variant="contained" color="primary" className='btnLogin'>
                                         Logar
                                     </Button>  
                             </Box>
@@ -124,15 +126,15 @@ function Login() {
 
                         <Box display="flex" justifyContent="center" marginTop={2}>
                             <Box marginRight={0.5}>
-                                <Typography variant="subtitle1" gutterBottom align="center">
+                                <Typography variant="subtitle1" align="center" className='ctaLogin'>
                                     Não tem uma conta?{" "}
                                 </Typography>
                             </Box>
-                            <Link to="/cadastrar-usuario">
+                            <Link to="/cadastrar-usuario" >
                                 <Typography
                                     variant="subtitle1"
                                     align="center"
-                                    style={{ fontWeight: "bold" }}
+                                    className='linkLogin'
                                 >
                                     Cadastre-se
                                 </Typography>

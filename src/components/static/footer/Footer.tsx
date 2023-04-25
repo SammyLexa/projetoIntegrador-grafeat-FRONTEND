@@ -13,15 +13,13 @@ function Footer() {
                 <Grid alignItems="center" item xs={12}>
                     <Box className='box1'>
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                            <Typography variant="h5" align="center" gutterBottom className='textos'>Conheça mais sobre o time e nosso projeto:</Typography>
+                            <Typography variant="h5" align="center" gutterBottom className='textos'>Entre em contato:</Typography>
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center">
-                            <a href="https://github.com/pedroapinheiro/projetoIntegrador-grafeat-FRONTEND.git" target="_blank" rel="noopener noreferrer">
-                                <GitHubIcon className='redes' />
+                            <a href="https://linktr.ee/grafeat" target="_blank" rel="noopener noreferrer">
+                                <img src='https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/Linktree_logo.svg.png?updatedAt=1682379896369' alt='Logo do linktree' className='redes' />
                             </a>
-                            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-                                <LinkedInIcon className='redes' />
-                            </a>
+                            
                         </Box>
                     </Box>
                     <Box className='box2'>
