@@ -1,10 +1,10 @@
 .box1{
-    background-color: #EB2474;
+    background-color: var(--cor-sextiaria);
     height: 120px;
 }
 
 .box2{
-    background-color: #5941A9;
+    background-color: var(--cor-sextiaria);
     height: 60px;
 }
 

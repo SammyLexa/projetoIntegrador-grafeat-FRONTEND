@@ -51,14 +51,15 @@ table {
 
 :root{
 	--cor-principal:#423D3D;
-	--cor-secundaria: #5941A9;
-	--cor-terciaria: #EB2474;
-	--cor-quartaria: #41EAD4;
-	--cor-quintaria: #FBFF12;
+	--cor-secundaria: #F02D3A; /*mais claro*/
+	--cor-terciaria: #DD0426;
+	--cor-quartaria: #EFF6EE;
+	--cor-quintaria: #4A8FE7; /*mais claro*/
+	--cor-sextiaria: #183059;
 	--fonte-principal: 'Ubuntu', sans-serif;
 }
 
 body{
-	background: rgb(66,61,61);
+	background: #EFF6EE;
 	font-family: var(--fonte-principal);
 }

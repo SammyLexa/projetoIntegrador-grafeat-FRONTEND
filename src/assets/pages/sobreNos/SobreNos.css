@@ -27,7 +27,8 @@
     gap: 2rem;
     position: relative;
     display: block;
-    background-color: var(--cor-principal);
+    background: url(https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/10505378.jpg?updatedAt=1682511241068) no-repeat center / cover;
+    width: 100%;   
 }
 
 .card {

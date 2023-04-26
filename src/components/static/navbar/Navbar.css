@@ -8,7 +8,7 @@
 }
 
 .navbar{
-    background-color: transparent !important;
+    background-color: var(--cor-terciaria) !important;
     box-shadow: none !important;
 }
 
