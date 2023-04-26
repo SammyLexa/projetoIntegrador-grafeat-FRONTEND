@@ -2,8 +2,17 @@
     text-decoration: none;
 }
 
-.navbarFundo{
+.img{
+    width: 70%;
+    padding: 0.5rem;
+}
+
+.navbar{
     background-color: transparent !important;
-    box-shadow: none;
+    box-shadow: none !important;
+}
+
+.navbar_desktop{
+    display: none;
 }
 
