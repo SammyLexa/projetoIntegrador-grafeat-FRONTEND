@@ -62,3 +62,7 @@
     font-size: 14px;
     margin: 5px 0 0;
   }
+
+  .logo{
+    width: 50% !important;
+  }
