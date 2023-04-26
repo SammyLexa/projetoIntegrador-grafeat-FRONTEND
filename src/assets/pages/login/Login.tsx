@@ -3,13 +3,17 @@ import "./Login.css";
 import { Button, Grid, TextField, Typography } from "@material-ui/core";
 import { Box } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import useLocalStorage from "react-use-localstorage";
 import VendedorLogin from "../../../components/models/VendedorLogin";
 import { login } from "../../../components/services/Service"
+import { addToken } from "../../../store/tokens/action";
+import { useDispatch } from "react-redux";
 
 function Login() {
-    let history = useNavigate();
-    const [token, setToken] = useLocalStorage("token");
+    const [token, setToken] = useState('')
+    const dispatch = useDispatch()
+    
+    let navigate = useNavigate();
+
     const [vendedorLogin, setVendedorLogin] = useState<VendedorLogin>({
         id: 0,
         nomeVendedor: "",
@@ -34,9 +38,9 @@ function Login() {
 
     useEffect(() => {
         if (token != "") {
-            history("/home");
+            dispatch(addToken(token))
+            navigate("/home");
         }
-        console.log(token)
     }, [token])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
