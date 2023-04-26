@@ -51,7 +51,7 @@ function ListaProdutos() {
 
                             </div>
                         </div>
-                        <div className='Card_criador '>
+                        <div className='Card_criador'>
                             <img src="https://i.postimg.cc/SQBzNQf1/image-avatar.png" alt="avatar" className="small-avatar" />
                             <p className='Card_descricao'>Criado por <span className='nome_criador'>Jules Wyvern</span></p>
                         </div>
