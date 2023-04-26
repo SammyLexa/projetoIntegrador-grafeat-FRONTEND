@@ -8,9 +8,9 @@ import CadastrarUsuario from './assets/pages/cadastrarUsuario/CadastrarVendedor'
 import Home from './assets/pages/home/Home';
 import Footer from './components/static/footer/Footer';
 import store from './store/store';
+import CadastroCategoria from './components/categorias/cadastroCategoria/CadastroCategoria';
+import CadastroProduto from './components/produtos/cadastroProduto/CadastroProduto';
 import { Provider } from 'react-redux';
-
-
 
 function App() {
   return (
@@ -22,9 +22,21 @@ function App() {
             <Route path="/" element={<Login />} />
 
             <Route path="/login" element={<Login />} />
+
             <Route path="/home" element={<Home />} />
+
             <Route path="/sobre-nos" element={<SobreNos />} />
+
             <Route path="/cadastrar-usuario" element={<CadastrarUsuario />} />
+
+            <Route path="/formularioProduto" element={<CadastroProduto />} />
+
+            <Route path="/formularioProduto/:id" element={<CadastroProduto />} />
+
+            <Route path="/formularioCategoria" element={<CadastroCategoria />} />
+
+            <Route path="/formularioCategoria/:id" element={<CadastroCategoria />} />
+
           </Routes>
         </div>
         <Footer />

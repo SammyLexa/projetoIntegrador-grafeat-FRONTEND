@@ -10,10 +10,10 @@ import { Button } from '@material-ui/core';
 
 const navVendedor = [{
     nome: 'Cadastrar Produtos',
-    link: ''
+    link: '/formularioProduto/'
 }, {
-    nome: 'Cadastrar Temas',
-    link: ''
+    nome: 'Cadastrar Categoria',
+    link: '/formularioCategoria'
 }];
 
 function PerfilLogado() {
