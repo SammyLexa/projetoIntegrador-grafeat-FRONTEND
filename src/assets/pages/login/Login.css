@@ -1,28 +1,20 @@
-.textfieldLogin{
-    background-color: whitesmoke;
-  }
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: end !important;
+    padding-bottom: 10rem;
+}
 
-  .tituloLogin{
-    font-size: 3vw !important;
-    color: whitesmoke !important;
-    padding-top: 10% !important;
-    font-weight: bold;
-  }
+.form_sumit{
+    display: flex;
+    flex-direction: column;
+}
 
-  .btnLogin{
-    width: 50%
-  }
+.campo{
+    width: 60% !important;
+    border-radius: 5px;
+}
 
-  .linkLogin{
-    text-decoration: none !important;
-    font-weight: bold !important;
-    color: black !important;
-    font-style: italic !important;
-    font-size: 1.5vw !important;
-    padding-bottom: 10% !important;
-  }
-
-  .ctaLogin{
-    font-size: 1.5vw !important;
-    padding-bottom: 10% !important;
-  }
+.form_btn{
+    width: 60%;
+}

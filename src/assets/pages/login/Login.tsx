@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import useLocalStorage from "react-use-localstorage";
 import VendedorLogin from "../../../components/models/VendedorLogin";
-import {login} from "../../../components/services/Service"
+import { login } from "../../../components/services/Service"
 
 function Login() {
     let history = useNavigate();
@@ -28,7 +28,7 @@ function Login() {
                 ...vendedorLogin,
                 [e.target.name]: e.target.value,
             },
-            
+
         );
     }
 
@@ -37,7 +37,7 @@ function Login() {
             history("/home");
         }
         console.log(token)
-        },[token]) 
+    }, [token])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -59,7 +59,7 @@ function Login() {
             >
                 {/* Foto */}
                 <Grid
-                    xs={5}
+                    xs={4}
                     style={{
                         backgroundImage: `url(https://ik.imagekit.io/sammylexa/Grafeat/BannerGra_1__1_.png?updatedAt=1681568731971)`,
                         backgroundRepeat: "no-repeat",
@@ -72,9 +72,8 @@ function Login() {
 
                 {/* Formulario */}
                 <Grid
-                    xs={7}
-                    alignItems="center"
-                    justifyContent="center"
+                    xs={8}
+                    className="form"
                     style={{
                         backgroundImage: `url(https://ik.imagekit.io/sammylexa/Grafeat/BannerGra_1__2_.png?updatedAt=1681569211924)`,
                         backgroundRepeat: "no-repeat",
@@ -84,30 +83,28 @@ function Login() {
                         backgroundPosition: "center",
                     }}
                 >
-                    <Box paddingX={6}>
-                        <form onSubmit={onSubmit}>
+                    <Box paddingX={6} >
+                        <form onSubmit={onSubmit} className="form_sumit">
                             <Typography
                                 variant="h3"
                                 gutterBottom
-                                color="textPrimary"
                                 component="h3"
-                                align="center"
-                                className='tituloLogin'
+                                style={{ fontWeight: "bold", color: "white" }}
                             >
                                 Entrar
                             </Typography>
                             <TextField onChange={(event: ChangeEvent<HTMLInputElement>) => updatedModel(event)}
-                            value={vendedorLogin.usuario}
+                                value={vendedorLogin.usuario}
                                 id="usuario"
                                 label="Usuário"
                                 variant="outlined"
                                 name="usuario"
                                 margin="normal"
                                 fullWidth
-                                className='textfieldLogin'
-                            ></TextField>
+                                style={{ backgroundColor: "#ffffff25" }}
+                                className="campo"></TextField>
                             <TextField onChange={(event: ChangeEvent<HTMLInputElement>) => updatedModel(event)}
-                            value={vendedorLogin.senha}
+                                value={vendedorLogin.senha}
                                 id="senha"
                                 label="Senha"
                                 variant="outlined"
@@ -115,18 +112,19 @@ function Login() {
                                 margin="normal"
                                 fullWidth
                                 type="password"
-                                className='textfieldLogin'
+                                style={{ backgroundColor: "#ffffff25" }}
+                                className="campo"
                             ></TextField>
-                            <Box marginTop={2} textAlign="center">
-                                    <Button type="submit" variant="contained" color="primary" className='btnLogin'>
-                                        Logar
-                                    </Button>  
+                            <Box marginTop={2}>
+                                <Button  type="submit" variant="contained" color="secondary" className="form_btn">
+                                    Logar
+                                </Button>
                             </Box>
                         </form>
 
-                        <Box display="flex" justifyContent="center" marginTop={2}>
+                        <Box display="flex" marginTop={2}>
                             <Box marginRight={0.5}>
-                                <Typography variant="subtitle1" align="center" className='ctaLogin'>
+                                <Typography variant="subtitle1" gutterBottom >
                                     Não tem uma conta?{" "}
                                 </Typography>
                             </Box>
@@ -134,7 +132,7 @@ function Login() {
                                 <Typography
                                     variant="subtitle1"
                                     align="center"
-                                    className='linkLogin'
+                                    style={{ fontWeight: "bold", color: "white"}}
                                 >
                                     Cadastre-se
                                 </Typography>
