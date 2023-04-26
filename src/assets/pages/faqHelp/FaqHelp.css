@@ -1,0 +1,32 @@
+.containerAjuda{
+    background-color: #746f6f !important;
+}
+
+.tituloAjuda{
+    color: #5941A9;
+    padding-top: 15%;
+}
+
+.legendaAjuda{
+    width: 80%;
+    padding-top: 5%;
+    text-align: center !important;
+    margin-left: 50% !important;
+}
+
+.acordeao{
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.cadastrarVerde{
+    color: green !important;
+}
+
+.atualizarLaranja{
+    color: rgb(255, 111, 15);
+}
+
+.deletarVermelho{
+    color: red;
+}

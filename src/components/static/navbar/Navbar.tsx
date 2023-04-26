@@ -14,6 +14,9 @@ const page = [{
 }, {
     nome: 'Home',
     link: '/home'
+}, {
+    nome: 'FAQ e Ajuda',
+    link: '/ajudaFAQ'
 }]
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -68,6 +71,13 @@ function Navbar() {
                                 <Box mx={1} className='cursor'>
                                     <Typography variant="h6" style={{color: 'white'}}>
                                         Produtos
+                                    </Typography>
+                                </Box>
+                            </Link>
+                            <Link to='/ajudaFAQ'>
+                                <Box mx={1} className='cursor'>
+                                    <Typography variant="h6" style={{color: 'white'}}>
+                                        FAQ e Ajuda
                                     </Typography>
                                 </Box>
                             </Link>
