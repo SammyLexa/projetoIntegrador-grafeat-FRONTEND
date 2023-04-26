@@ -2,8 +2,11 @@ import { Avatar, Box, IconButton, Menu, MenuItem, Tooltip, Typography } from '@m
 import React, { useState } from 'react'
 import Vendedor from '../../../models/Vendedor';
 import { Link, useNavigate } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import './Perfil.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { TokenState } from '../../../../store/tokens/tokensReducer';
+import { addToken } from '../../../../store/tokens/action';
+import { Button } from '@material-ui/core';
 
 const navVendedor = [{
     nome: 'Cadastrar Produtos',
@@ -15,8 +18,12 @@ const navVendedor = [{
 
 function PerfilLogado() {
 
-    const [token, setToken] = useLocalStorage('token')
-    let navigate = useNavigate()
+    const token = useSelector<TokenState, TokenState['token']>(
+        (state) => state.token
+    )
+    const dispatch = useDispatch()
+    
+    const navigate = useNavigate()
 
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null)
 
@@ -32,11 +39,11 @@ function PerfilLogado() {
 
     const nome = `Olá, ${vendedor?.nomeVendedor}`
 
-    function goLogout(){
-        setToken('')
+    function goLogout() {
+        dispatch(addToken(''))
         alert("Usuário deslogado")
         navigate('/login')
-      }
+    }
 
     return (
         <div className='perfil'>
@@ -65,17 +72,17 @@ function PerfilLogado() {
                 {navVendedor.map((nav) => (
                     <MenuItem onClick={handleCloseUserMenu}>
                         <Link to={nav.link}>
-                        <Box>
-                            <Typography textAlign="center" style={{color: 'black'}}>{nav.nome}</Typography>
-                        </Box>
+                            <Box>
+                                <Typography textAlign="center" style={{ color: 'black' }}>{nav.nome}</Typography>
+                            </Box>
                         </Link>
                     </MenuItem>
                 ))}
                 <MenuItem onClick={handleCloseUserMenu}>
-                        <Box  onClick={goLogout}>
-                            <Typography textAlign="center">Sair</Typography>
-                        </Box>
-                    </MenuItem>
+                    <Box onClick={goLogout}>
+                        <Typography textAlign="center">Sair</Typography>
+                    </Box>
+                </MenuItem>
             </Menu>
         </div>
     )

@@ -4,9 +4,11 @@ import { Box, Container, Grid, IconButton, Menu, MenuItem, Typography } from '@m
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css'
 import MenuIcon from '@mui/icons-material/Menu';
-import useLocalStorage from 'react-use-localstorage';
 import PerfilDeslogado from './perfil/PerfilDeslogado';
 import PerfilLogado from './perfil/PerfilLogado';
+import { useSelector, useDispatch } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { addToken } from '../../../store/tokens/action';
 
 const page = [{
     nome: 'Sobre Nós',
@@ -19,7 +21,10 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
 
-    const [token, setToken] = useLocalStorage('token')
+    const token = useSelector<TokenState, TokenState['token']>(
+        (state) => state.token
+    )
+    const dispatch = useDispatch()
     let navigate = useNavigate()
 
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
@@ -33,7 +38,11 @@ function Navbar() {
     };
 
     
-
+    function goLogout() {
+        dispatch(addToken(''))
+        alert("Usuário deslogado")
+        navigate('/login')
+    }
     
     return (
 
