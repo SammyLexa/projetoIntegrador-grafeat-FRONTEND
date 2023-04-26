@@ -4,7 +4,6 @@ import { TextField, Grid, Typography, Button } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import './CadastrarUsuario.css'
-import useLocalStorage from "react-use-localstorage";
 import VendedorLogin from "../../../components/models/VendedorLogin";
 import {cadastroVendedor, login} from "../../../components/services/Service"
 import Vendedor from "../../../components/models/Vendedor";
@@ -61,7 +60,7 @@ function CadastrarVendedor(){
     }
     async function onSubmit(event: ChangeEvent<HTMLFormElement>) {
         event.preventDefault()
-        if (confirmarSenha === vendedor.senha) {
+        if (confirmarSenha === vendedor.senha ) {
             try {
                 await cadastroVendedor('/vendedor/cadastrar', vendedor, setVendedorResult)
                 alert('Usuário cadastrado com sucesso')

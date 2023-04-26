@@ -1,0 +1,46 @@
+.nav_btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn{
+    background-color: #fff;
+    border: none;
+    width: 9rem;
+    padding: 0.2rem 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--cor-principal);
+    cursor: pointer;
+}
+
+.btn_cadastro{
+    border-radius: 20px 0 0 20px;
+}
+
+.btn_login{
+    border-radius: 0 20px 20px 0;
+}
+
+@media screen and (max-width:744px) {
+    .nav_btn{
+        flex-direction: column;
+        margin: 1rem 0;
+    }
+
+    .btn_cadastro, .btn_login{
+        border-radius: 20px;
+    }
+
+    .btn{
+        font-size: 12px;
+        width: 6rem;
+    }
+}
+
+.perfil{
+    display: flex;
+    justify-content: center;
+}
