@@ -9,6 +9,8 @@ import Home from './assets/pages/home/Home';
 import Footer from './components/static/footer/Footer';
 import store from './store/store';
 import { Provider } from 'react-redux';
+import ListaCategorias from './components/categorias/listaCategorias/ListaCategorias';
+import ListaProdutos from './components/produtos/listaProdutos/ListaProdutos';
 
 
 
@@ -25,6 +27,8 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/sobre-nos" element={<SobreNos />} />
             <Route path="/cadastrar-usuario" element={<CadastrarUsuario />} />
+            <Route path="/categorias" element={<ListaCategorias />} />
+            <Route path="/produtos" element={<ListaProdutos />} />
           </Routes>
         </div>
         <Footer />

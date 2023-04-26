@@ -1,0 +1,46 @@
+.card_container{
+    background-color: #ffffff80;
+    width: 30%;
+    margin: auto;
+    padding: 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 20px;
+}
+
+.card_categoria{
+    font-size: 14px;
+    color: #4b4949;
+}
+
+.card_titulo{
+    margin-bottom: 1rem;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--cor-terciaria);
+}
+
+.botao{
+    background-color: var(--cor-terciaria);
+    color: white;
+    width: 6rem;
+    margin-right: 1rem;
+}
+
+.botao:hover{
+    background-color: #831441;
+    transition: .5s;
+}
+
+.botao-deletar{
+    background-color: white;
+    color: black;
+    width: 6rem;
+}
+
+.botao-deletar:hover{
+    background-color: #817f7f;
+    color: white;
+    transition: .5s;
+}
