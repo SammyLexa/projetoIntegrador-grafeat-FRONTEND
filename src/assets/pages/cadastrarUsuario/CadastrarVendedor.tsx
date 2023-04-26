@@ -61,7 +61,7 @@ function CadastrarVendedor(){
     }
     async function onSubmit(event: ChangeEvent<HTMLFormElement>) {
         event.preventDefault()
-        if (confirmarSenha === vendedor.senha) {
+        if (confirmarSenha === vendedor.senha ) {
             try {
                 await cadastroVendedor('/vendedor/cadastrar', vendedor, setVendedorResult)
                 alert('Usuário cadastrado com sucesso')

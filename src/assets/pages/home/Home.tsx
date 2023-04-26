@@ -1,14 +1,14 @@
 
 import React from 'react';
 import { Typography, Grid, Container } from '@material-ui/core';
-import './home.css'; 
+import './Home.css'; 
 
 const Home: React.FC = () => {
   return (
     <Container maxWidth="md" className="container">
       <div className="banner">
         <Typography variant="h1" align="center" gutterBottom style={{color:"white"}}>
-          Bem-vindo a Loja Grafeat!
+          Bem-vindo a Loja <img className='logo' src="https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/grafeat-logo-.png?updatedAt=1681816793769" alt="Logo do Grafeat" />
         </Typography>
         <Typography variant="subtitle1" align="center" gutterBottom style={{color:"white"}}>
           Confira nossos produtos incríveis e aproveite as ofertas!
