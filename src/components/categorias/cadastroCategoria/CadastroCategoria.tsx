@@ -55,14 +55,14 @@ function CadastroCategoria() {
 
         if (id !== undefined) {
             console.log(categoria)
-            put(`/categorias`, categoria, setCategoria, {
+            await put(`/categorias`, categoria, setCategoria, {
                 headers: {
                     'Authorization': token
                 }
             })
             alert('Categoria atualizada com sucesso');
         } else {
-            post(`/categorias`, categoria, setCategoria, {
+           await post(`/categorias`, categoria, setCategoria, {
                 headers: {
                     'Authorization': token
                 }
