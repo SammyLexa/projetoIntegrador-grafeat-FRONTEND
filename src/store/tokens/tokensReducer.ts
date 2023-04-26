@@ -1,6 +1,7 @@
 import { Action } from './action'
 
 export interface TokenState {
+    [x: string]: any
     token: string
 }
 
