@@ -96,7 +96,7 @@ function Login() {
                             <TextField onChange={(event: ChangeEvent<HTMLInputElement>) => updatedModel(event)}
                                 value={vendedorLogin.usuario}
                                 id="usuario"
-                                label="usuário"
+                                label="Usuário"
                                 variant="outlined"
                                 name="usuario"
                                 margin="normal"
@@ -106,7 +106,7 @@ function Login() {
                             <TextField onChange={(event: ChangeEvent<HTMLInputElement>) => updatedModel(event)}
                                 value={vendedorLogin.senha}
                                 id="senha"
-                                label="senha"
+                                label="Senha"
                                 variant="outlined"
                                 name="senha"
                                 margin="normal"
@@ -128,7 +128,7 @@ function Login() {
                                     Não tem uma conta?{" "}
                                 </Typography>
                             </Box>
-                            <Link to="/cadastrar-usuario">
+                            <Link to="/cadastrar-usuario" >
                                 <Typography
                                     variant="subtitle1"
                                     align="center"
