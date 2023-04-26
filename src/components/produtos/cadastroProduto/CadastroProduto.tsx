@@ -8,11 +8,27 @@ import { buscaId, put, post, busca } from '../../services/Service';
 import Categoria from '../../models/Categoria';
 
 function CadastroProduto() {
-    let navigate = useNavigate();
+    const navigate = useNavigate()
+    const { id } = useParams<{ id: string }>()
+    const [categorias, setCategorias] = useState<Categoria[]>([])
     const token = useSelector<TokenState, TokenState["token"]>(
         (state) => state.token
-    );
-    const { id } = useParams<{ id: string }>();
+    )
+
+    useEffect(() => {
+        if (token == "") {
+            alert("Você precisa estar logado")
+            navigate("/login")
+
+        }
+    }, [token])
+
+    const [categoria, setCategoria] = useState<Categoria>({
+        id: 0,
+        nomeCategoria: '',
+        descricaoCategoria: ''
+    })
+
     const [produto, setProduto] = useState<Produto>({
         id: 0,
         nome: '',
@@ -25,29 +41,12 @@ function CadastroProduto() {
         categoria: null
     })
 
-    const [categorias, setCategorias] = useState<Categoria[]>([])
-
-    const [categoria, setCategoria] = useState<Categoria>({
-        id: 0,
-        nomeCategoria: '',
-        descricaoCategoria: '',
-    })
-
     useEffect(() => {
-        if (token == "") {
-            alert("Você precisa estar logado")
-            navigate("/login")
-
-        }
-    }, [token])
-    
-    async function getCategorias() {
-        await busca("/categorias", setCategorias, {
-            headers: {
-                'Authorization': token
-            }
+        setProduto({
+            ...produto,
+            categoria: categoria
         })
-    }
+    }, [categoria])
 
     useEffect(() => {
         getCategorias();
@@ -55,6 +54,14 @@ function CadastroProduto() {
             findById(id)
         }
     }, [id])
+
+    async function getCategorias() {
+        await busca("/categorias", setCategorias, {
+            headers: {
+                'Authorization': token
+            }
+        })
+    }
 
     async function findById(id: string) {
         buscaId(`/produtos/${id}`, setProduto, {
@@ -65,7 +72,6 @@ function CadastroProduto() {
     }
 
     function updatedProduto(e: ChangeEvent<HTMLInputElement>) {
-
         setProduto({
             ...produto,
             [e.target.name]: e.target.value,
@@ -75,18 +81,16 @@ function CadastroProduto() {
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        console.log("produtos" + JSON.stringify(produto))
 
         if (id !== undefined) {
-            console.log(produto)
-           await put(`/produtos`, produto, setProduto, {
+            await put(`/produtos`, produto, setProduto, {
                 headers: {
                     'Authorization': token
                 }
             })
             alert('Produto atualizado com sucesso');
         } else {
-           await post(`/produtos`, produto, setProduto, {
+            await post(`/produtos`, produto, setProduto, {
                 headers: {
                     'Authorization': token
                 }
@@ -94,17 +98,17 @@ function CadastroProduto() {
             alert('Produto cadastrado com sucesso');
         }
         back()
-    
-        }
-    
-        function back() {
-            navigate('/produtos')
-        }
-  
+
+    }
+
+    function back() {
+        navigate('/home') //WFF: troque isso aqui depois
+    }
+
     return (
         <Grid marginTop={12} >
             <Container maxWidth="sm" >
-            
+
                 <form onSubmit={onSubmit} >
                     <Typography variant="h3" color="textSecondary" component="h1" align="center" >Cadastrar ou Atualizar Produto</Typography>
                     <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="nome" variant="outlined" name="nome" margin="normal" fullWidth />
@@ -116,7 +120,7 @@ function CadastroProduto() {
                     <TextField value={produto.linkFoto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="linkFoto" label="Link da Foto" name="linkFoto" variant="outlined" margin="normal" fullWidth />
 
                     <FormControl >
-                        <InputLabel id="demo-simple-select-helper-label">Categoria </InputLabel>
+                        <InputLabel id="demo-simple-select-helper-label">Categoria</InputLabel>
                         <Select
                             labelId="demo-simple-select-helper-label"
                             id="demo-simple-select-helper"
