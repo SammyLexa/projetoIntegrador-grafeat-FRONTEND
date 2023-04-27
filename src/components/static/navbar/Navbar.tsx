@@ -73,10 +73,17 @@ function Navbar() {
                                     </Typography>
                                 </Box>
                             </Link>
-                            <Link to='/login'>
+                            <Link to='/produtos'>
                                 <Box mx={1} className='cursor'>
                                     <Typography variant="h6" style={{color: 'white'}}>
                                         Produtos
+                                    </Typography>
+                                </Box>
+                            </Link>
+                            <Link to='/categorias'>
+                                <Box mx={1} className='cursor'>
+                                    <Typography variant="h6" style={{color: 'white'}}>
+                                    Categorias
                                     </Typography>
                                 </Box>
                             </Link>

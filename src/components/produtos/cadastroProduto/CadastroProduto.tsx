@@ -83,7 +83,7 @@ function CadastroProduto() {
         e.preventDefault()
 
         if (id !== undefined) {
-            await put(`/produtos`, produto, setProduto, {
+            await put(`/produtos/${id}`, produto, setProduto, {
                 headers: {
                     'Authorization': token
                 }
@@ -102,7 +102,7 @@ function CadastroProduto() {
     }
 
     function back() {
-        navigate('/home') //WFF: troque isso aqui depois
+        navigate('/produtos')
     }
 
     return (

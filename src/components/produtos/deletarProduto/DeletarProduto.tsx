@@ -30,7 +30,7 @@ function DeletarProduto() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId(`/produto/${id}`, setProduto, {
+        buscaId(`/produtos/${id}`, setProduto, {
             headers: {
                 'Authorization': token
             }
@@ -38,7 +38,7 @@ function DeletarProduto() {
     }
 
     function opcaoSim() {
-        history('/produto')
+        history('/produtos')
         deleteId(`/produtos/${id}`, {
             headers: {
                 'Authorization': token
@@ -48,7 +48,7 @@ function DeletarProduto() {
     }
 
     function opcaoNao() {
-        history('/produto')
+        history('/produtos')
     }
     return (
         <>
@@ -60,7 +60,8 @@ function DeletarProduto() {
                                 Deseja deletar o Produto:
                             </Typography>
                             <Typography color="textSecondary" >
-                                {produto?.descricao}
+                                {produto?.nome}
+                                {console.log({produto})}
                             </Typography>
                         </Box>
 
