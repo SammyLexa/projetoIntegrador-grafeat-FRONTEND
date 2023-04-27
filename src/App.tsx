@@ -11,6 +11,8 @@ import store from './store/store';
 import CadastroCategoria from './components/categorias/cadastroCategoria/CadastroCategoria';
 import CadastroProduto from './components/produtos/cadastroProduto/CadastroProduto';
 import { Provider } from 'react-redux';
+import ListaCategorias from './components/categorias/listaCategorias/ListaCategorias';
+import ListaProdutos from './components/produtos/listaProdutos/ListaProdutos';
 
 function App() {
   return (
@@ -28,15 +30,8 @@ function App() {
             <Route path="/sobre-nos" element={<SobreNos />} />
 
             <Route path="/cadastrar-usuario" element={<CadastrarUsuario />} />
-
-            <Route path="/formularioProduto" element={<CadastroProduto />} />
-
-            <Route path="/formularioProduto/:id" element={<CadastroProduto />} />
-
-            <Route path="/formularioCategoria" element={<CadastroCategoria />} />
-
-            <Route path="/formularioCategoria/:id" element={<CadastroCategoria />} />
-
+            <Route path="/categorias" element={<ListaCategorias />} />
+            <Route path="/produtos" element={<ListaProdutos />} />
           </Routes>
         </div>
         <Footer />
