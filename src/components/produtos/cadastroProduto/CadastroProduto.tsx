@@ -16,6 +16,8 @@ function CadastroProduto() {
         (state) => state.token
     )
 
+    const [carregando, setCarregando] = useState(false)
+
     useEffect(() => {
         if (token == "") {
             toast.warn('Você precisa estar logado!', {
@@ -27,7 +29,7 @@ function CadastroProduto() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                });
+            });
             navigate("/login")
 
         }
@@ -43,7 +45,7 @@ function CadastroProduto() {
         id: 0,
         nome: '',
         descricao: '',
-        preco: 0,
+        preco: 10,
         material: '',
         tamanho: '',
         quantidade: 0,
@@ -93,6 +95,7 @@ function CadastroProduto() {
         e.preventDefault()
 
         if (id !== undefined) {
+            setCarregando(true)
             await put(`/produtos`, produto, setProduto, {
                 headers: {
                     'Authorization': token
@@ -107,8 +110,9 @@ function CadastroProduto() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                });
+            });
         } else {
+            setCarregando(true)
             await post(`/produtos`, produto, setProduto, {
                 headers: {
                     'Authorization': token
@@ -123,7 +127,7 @@ function CadastroProduto() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                });
+            });
         }
         back()
 
@@ -139,13 +143,31 @@ function CadastroProduto() {
 
                 <form onSubmit={onSubmit} >
                     <Typography variant="h3" color="textSecondary" component="h1" align="center" >Cadastrar ou Atualizar Produto</Typography>
-                    <TextField value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="nome" variant="outlined" name="nome" margin="normal" fullWidth />
-                    <TextField value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" name="descricao" variant="outlined" margin="normal" fullWidth />
-                    <TextField value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="preço" name="preco" variant="outlined" margin="normal" fullWidth />
+                    <TextField
+                        error={produto.nome.length < 3 && produto.nome.length > 0}
+                        helperText={produto.nome.length < 3 && produto.nome.length > 0 ? 'o campo nome precisa ser preenchido' : ''}
+                        required value={produto.nome} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="nome" label="nome" variant="outlined" name="nome" margin="normal" fullWidth />
+                    <TextField
+                        error={produto.descricao.length < 3 && produto.descricao.length > 0}
+                        helperText={produto.descricao.length < 3 && produto.descricao.length > 0 ? 'o campo nome precisa ser preenchido' : ''}
+                        required value={produto.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="descricao" label="descricao" name="descricao" variant="outlined" margin="normal" fullWidth />
+                    <TextField
+                        error={produto.preco.toString().length < 2}
+                        helperText={produto.preco.toString().length < 2 ? 'o campo preço precisa ser preenchido' : ''}
+                        required value={produto.preco} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="preco" label="preço" name="preco" variant="outlined" margin="normal" fullWidth />
                     <TextField value={produto.material} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="material" label="Material" name="material" variant="outlined" margin="normal" fullWidth />
-                    <TextField value={produto.tamanho} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="tamanho" label="Tamanho" name="tamanho" variant="outlined" margin="normal" fullWidth />
-                    <TextField value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="Quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth />
-                    <TextField value={produto.linkFoto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="linkFoto" label="Link da Foto" name="linkFoto" variant="outlined" margin="normal" fullWidth />
+                    <TextField
+                        error={produto.tamanho.length < 3 && produto.tamanho.length > 0}
+                        helperText={produto.tamanho.length < 3 && produto.tamanho.length > 0 ? 'o campo tamanho precisa ser preenchido' : ''}
+                        required value={produto.tamanho} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="tamanho" label="Tamanho" name="tamanho" variant="outlined" margin="normal" fullWidth />
+                    <TextField
+                        error={produto.quantidade.toString().length < 1}
+                        helperText={produto.quantidade.toString().length < 1 ? 'o campo quantidade precisa ser preenchido' : ''}
+                        required value={produto.quantidade} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="quantidade" label="Quantidade" name="quantidade" variant="outlined" margin="normal" fullWidth />
+                    <TextField
+                        error={produto.linkFoto.length < 3 && produto.linkFoto.length > 0}
+                        helperText={produto.linkFoto.length < 3 && produto.linkFoto.length > 0 ? 'o campo foto precisa ser preenchido' : ''}
+                        required value={produto.linkFoto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedProduto(e)} id="linkFoto" label="Link da Foto" name="linkFoto" variant="outlined" margin="normal" fullWidth />
 
                     <FormControl >
                         <InputLabel id="demo-simple-select-helper-label">Categoria</InputLabel>
@@ -164,8 +186,25 @@ function CadastroProduto() {
                             }
                         </Select>
                         <FormHelperText>Escolha uma categoria para o produto</FormHelperText>
-                        <Button type="submit" variant="contained" >
-                            Finalizar
+                        <Button disabled={(
+                            produto.nome.length < 3 ||
+                            produto.descricao.length < 3 ||
+                            produto.preco.toString().length < 2 ||
+                            produto.tamanho.length < 3) ||
+                            produto.quantidade.toString().length < 1 ||
+                            produto.linkFoto.length < 3 ||
+                            categoria.nomeCategoria == ''
+                            ||
+                            (carregando)} type="submit" variant="contained" >
+                            {carregando ? (
+                                <section className="dots-container">
+                                    <div className="dot"></div>
+                                    <div className="dot"></div>
+                                    <div className="dot"></div>
+                                    <div className="dot"></div>
+                                    <div className="dot"></div>
+                                </section>
+                            ) : ('Cadastrar')}
                         </Button>
                     </FormControl>
                 </form>

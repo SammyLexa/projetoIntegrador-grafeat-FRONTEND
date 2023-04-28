@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 function Login() {
     const [token, setToken] = useState('')
     const dispatch = useDispatch()
-    
+
     let navigate = useNavigate();
 
     const [vendedorLogin, setVendedorLogin] = useState<VendedorLogin>({
@@ -26,6 +26,8 @@ function Login() {
         tipoDePagamento: "",
         token: ""
     });
+
+    const [carregando, setCarregando] = useState(false)
 
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
         setVendedorLogin(
@@ -47,6 +49,7 @@ function Login() {
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
+            setCarregando(true)
             await login(`/vendedor/logar`, vendedorLogin, setToken);
 
             toast.success('Vendedor logado com sucesso!', {
@@ -58,9 +61,10 @@ function Login() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                });
-            
+            });
+
         } catch (error) {
+            setCarregando(false)
             toast.error('Dados do vendedor inconsistentes. Erro ao logar!', {
                 position: "top-center",
                 autoClose: 2000,
@@ -70,7 +74,7 @@ function Login() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                });
+            });
         }
     }
     return (
@@ -119,16 +123,21 @@ function Login() {
                             </Typography>
                             <TextField onChange={(event: ChangeEvent<HTMLInputElement>) => updatedModel(event)}
                                 value={vendedorLogin.usuario}
+                                error={vendedorLogin.usuario.length < 7 && vendedorLogin.usuario.length > 0}
+                                helperText={vendedorLogin.usuario.length < 7 && vendedorLogin.usuario.length > 0 ? 'o campo usuario precisa ser preenchido' : ''}
                                 id="usuario"
                                 label="Usuário"
                                 variant="outlined"
                                 name="usuario"
                                 margin="normal"
                                 fullWidth
+                                type="email"
                                 style={{ backgroundColor: "#ffffff25" }}
                                 className="campo"></TextField>
                             <TextField onChange={(event: ChangeEvent<HTMLInputElement>) => updatedModel(event)}
                                 value={vendedorLogin.senha}
+                                error={vendedorLogin.senha.length < 8 && vendedorLogin.senha.length > 0}
+                                helperText={vendedorLogin.senha.length < 8 && vendedorLogin.senha.length > 0 ? 'O campo senha precisa ser preenchido' : ''}
                                 id="senha"
                                 label="Senha"
                                 variant="outlined"
@@ -140,8 +149,21 @@ function Login() {
                                 className="campo"
                             ></TextField>
                             <Box marginTop={2}>
-                                <Button  type="submit" variant="contained" color="secondary" className="form_btn">
-                                    Logar
+                                <Button
+                                    disabled={(vendedorLogin.usuario.length < 7 || vendedorLogin.senha.length < 8) || (carregando)}
+                                    type="submit"
+                                    variant="contained"
+                                    color="secondary"
+                                    className="form_btn">
+                                    {carregando ? (
+                                        <section className="dots-container">
+                                            <div className="dot"></div>
+                                            <div className="dot"></div>
+                                            <div className="dot"></div>
+                                            <div className="dot"></div>
+                                            <div className="dot"></div>
+                                        </section>
+                                    ) : ('Logar')}
                                 </Button>
                             </Box>
                         </form>
@@ -156,7 +178,7 @@ function Login() {
                                 <Typography
                                     variant="subtitle1"
                                     align="center"
-                                    style={{ fontWeight: "bold", color: "white"}}
+                                    style={{ fontWeight: "bold", color: "white" }}
                                 >
                                     Cadastre-se
                                 </Typography>

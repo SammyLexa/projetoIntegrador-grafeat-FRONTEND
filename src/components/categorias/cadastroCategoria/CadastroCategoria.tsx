@@ -19,6 +19,7 @@ function CadastroCategoria() {
         descricaoCategoria: '',
 
     })
+    const [carregando, setCarregando] = useState(false)
 
     useEffect(() => {
         if (token == "") {
@@ -31,7 +32,7 @@ function CadastroCategoria() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                });
+            });
             navigate("/login")
 
         }
@@ -64,7 +65,7 @@ function CadastroCategoria() {
         console.log("categoria" + JSON.stringify(categoria))
 
         if (id !== undefined) {
-            console.log(categoria)
+            setCarregando(true)
             await put(`/categorias`, categoria, setCategoria, {
                 headers: {
                     'Authorization': token
@@ -79,8 +80,10 @@ function CadastroCategoria() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                });
+            });
         } else {
+            setCarregando(true)
+            console.log(carregando)
             await post(`/categorias`, categoria, setCategoria, {
                 headers: {
                     'Authorization': token
@@ -95,7 +98,7 @@ function CadastroCategoria() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                });
+            });
         }
         back()
 
@@ -111,10 +114,22 @@ function CadastroCategoria() {
                 <Container maxWidth="sm" className="topo">
                     <form onSubmit={onSubmit}>
                         <Typography variant="h3" color="textSecondary" component="h1" align="center" > Editar ou Cadastrar categoria</Typography>
-                        <TextField value={categoria.nomeCategoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="nomeCategoria" label="Nome da Categoria" variant="outlined" name="nomeCategoria" margin="normal" fullWidth />
+                        <TextField
+                            error={categoria.nomeCategoria.length < 3 && categoria.nomeCategoria.length > 0}
+                            helperText={categoria.nomeCategoria.length < 3 && categoria.nomeCategoria.length > 0 ? 'o campo nome precisa ser preenchido' : ''}
+                            required value={categoria.nomeCategoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="nomeCategoria" label="Nome da Categoria" variant="outlined" name="nomeCategoria" margin="normal" fullWidth />
                         <TextField value={categoria.descricaoCategoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricaoCategoria" label="Descrição da Categoria" variant="outlined" name="descricaoCategoria" margin="normal" fullWidth />
-                        <Button type="submit" variant="contained" className='botao'>
-                            Finalizar
+                        <Button disabled={categoria.nomeCategoria.length < 3 || carregando} 
+                            type="submit" variant="contained" className='botao'>
+                            {carregando ? (
+                                        <section className="dots-container">
+                                            <div className="dot"></div>
+                                            <div className="dot"></div>
+                                            <div className="dot"></div>
+                                            <div className="dot"></div>
+                                            <div className="dot"></div>
+                                        </section>
+                                    ) : ('Cadastrar')}
                         </Button>
                     </form>
                 </Container>
