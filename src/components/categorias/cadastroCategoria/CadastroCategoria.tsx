@@ -55,7 +55,7 @@ function CadastroCategoria() {
 
         setCategoria({
             ...categoria,
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value
         })
     }
 
@@ -65,7 +65,7 @@ function CadastroCategoria() {
 
         if (id !== undefined) {
             console.log(categoria)
-            await put(`/categorias/${id}`, categoria, setCategoria, {
+            await put(`/categorias`, categoria, setCategoria, {
                 headers: {
                     'Authorization': token
                 }
