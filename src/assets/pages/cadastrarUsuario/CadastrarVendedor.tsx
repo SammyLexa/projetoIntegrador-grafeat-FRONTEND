@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
-import { TextField, Grid, Typography, Button, Select, MenuItem } from '@mui/material';
+import React, { ComponentProps, ChangeEvent, useEffect, useState } from "react";
+import { Grid, Typography, Button, Select, MenuItem } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import './CadastrarUsuario.css'
@@ -8,7 +8,8 @@ import { cadastroVendedor, login } from "../../../components/services/Service"
 import Vendedor from "../../../components/models/Vendedor";
 import './CadastrarUsuario.css';
 import { toast } from 'react-toastify';
-
+import TextField from "@material-ui/core/TextField";
+import InputMask from 'react-input-mask';
 
 
 function CadastrarVendedor() {
@@ -39,6 +40,22 @@ function CadastrarVendedor() {
         })
 
     const [carregando, setCarregando] = useState(false)
+
+    const options = [
+        { value: 'pix', label: 'Pix' },
+        { value: 'depositoBancario', label: 'DOC/TED' },
+        { value: 'cheque', label: 'Cheque' },
+    ];
+
+    // Renderize as opções como MenuItem
+    const renderOptions = () => {
+        return options.map((option) => (
+            <MenuItem key={option.value} value={option.value}>
+                {option.label}
+            </MenuItem>
+        ));
+    };
+
 
     useEffect(() => {
         if (vendedorResult.id != 0) {
@@ -144,25 +161,51 @@ function CadastrarVendedor() {
                                 <TextField
                                     error={vendedor.dataDeNascimento.length < 8 && vendedor.dataDeNascimento.length > 0}
                                     helperText={vendedor.dataDeNascimento.length < 8 && vendedor.dataDeNascimento.length > 0 ? 'o campo data de nascimento precisa ser preenchido' : ''}
-                                    name='dataDeNascimento' value={vendedor.dataDeNascimento} required onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Data de nascimento' margin='normal' id='dataDeNascimento' fullWidth className='textfield' />
+                                    name='dataDeNascimento'
+                                    value={vendedor.dataDeNascimento}
+                                    required
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                                    variant='outlined'
+                                    label='Data de nascimento'
+                                    margin='normal'
+                                    id='dataDeNascimento'
+                                    fullWidth
+                                    className='textfield'
+                                    InputProps={{
+                                        inputComponent: InputMask as any,
+                                        inputProps: { mask: '99/99/9999' }
+                                    }}
+                                />
 
                                 <TextField
                                     error={vendedor.localidade.length < 5 && vendedor.localidade.length > 0}
-                                    helperText={vendedor.localidade.length < 5 && vendedor.localidade.length > 0 ? 'o campo data de nascimento precisa ser preenchido' : ''}
+                                    helperText={vendedor.localidade.length < 5 && vendedor.localidade.length > 0 ? 'o campo localidade precisa ser preenchido' : ''}
                                     name='localidade' value={vendedor.localidade} required onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Localidade' margin='normal' id='localidade' fullWidth className='textfield' />
 
                                 <TextField
+                                    select
                                     error={vendedor.tipoDePagamento.length < 3 && vendedor.tipoDePagamento.length > 0}
-                                    helperText={vendedor.tipoDePagamento.length < 3 && vendedor.tipoDePagamento.length > 0 ? 'o campo pagamento precisa ser preenchido' : ''}
-                                    name='tipoDePagamento' value={vendedor.tipoDePagamento} required onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} variant='outlined' label='Tipo de pagamento' margin='normal' id='tipoDePagamento' fullWidth className='textfield' />
-
-                                {/* <Select fullWidth className='textfield'>
-                                    <MenuItem className='temaLabel'>Pix</MenuItem>
-                                    <MenuItem className='temaLabel'>Cartão de Crédito</MenuItem>
-                                    <MenuItem className='temaLabel'>Cartão de Débito</MenuItem>
-                                    <MenuItem className='temaLabel'>Boleto</MenuItem>
-                                    <MenuItem className='temaLabel'>Cheque</MenuItem>
-                                </Select> */}
+                                    helperText={
+                                        vendedor.tipoDePagamento.length < 3 && vendedor.tipoDePagamento.length > 0
+                                            ? 'o campo pagamento precisa ser preenchido'
+                                            : ''
+                                    }
+                                    name='tipoDePagamento'
+                                    value={vendedor.tipoDePagamento}
+                                    required
+                                    onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                                    variant='outlined'
+                                    label='Tipo de pagamento'
+                                    margin='normal'
+                                    id='tipoDePagamento'
+                                    fullWidth
+                                    className='textfield'
+                                    SelectProps={{ displayEmpty: true }}
+                                >
+                                    <MenuItem value='' disabled>
+                                    </MenuItem>
+                                    {renderOptions()}
+                                </TextField>
 
                                 <Box marginTop={2} textAlign='center'>
                                     <Button
@@ -203,5 +246,6 @@ function CadastrarVendedor() {
         </>
     )
 }
+
 
 export default CadastrarVendedor
