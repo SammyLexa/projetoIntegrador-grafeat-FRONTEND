@@ -5,6 +5,10 @@
     display: flex;
     flex-direction: row;
     gap: 3rem;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
 }
 
 .Card_container {
