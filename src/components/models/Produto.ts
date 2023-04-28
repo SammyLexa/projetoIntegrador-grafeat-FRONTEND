@@ -1,4 +1,5 @@
 import Categoria from "./Categoria";
+import Vendedor from "./Vendedor";
 
 interface Produto {
     id: number,
@@ -10,6 +11,7 @@ interface Produto {
     quantidade: number,
     linkFoto: string,
     categoria?: Categoria | null
+    vendedor?: Vendedor | null
 }
 
 export default Produto

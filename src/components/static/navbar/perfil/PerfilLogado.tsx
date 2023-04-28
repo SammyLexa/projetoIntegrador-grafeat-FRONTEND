@@ -1,5 +1,5 @@
 import { Avatar, Box, IconButton, Menu, MenuItem, Tooltip, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Vendedor from '../../../models/Vendedor';
 import { Link, useNavigate } from 'react-router-dom';
 import './Perfil.css'
@@ -8,6 +8,7 @@ import { TokenState } from '../../../../store/tokens/tokensReducer';
 import { addToken } from '../../../../store/tokens/action';
 import { Button } from '@material-ui/core';
 import { toast } from 'react-toastify';
+import { buscaId } from '../../../services/Service';
 
 const navVendedor = [{
     nome: 'Cadastrar Produtos',
@@ -23,7 +24,7 @@ function PerfilLogado() {
         (state) => state.token
     )
     const dispatch = useDispatch()
-    
+
     const navigate = useNavigate()
 
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null)
@@ -36,9 +37,32 @@ function PerfilLogado() {
         setAnchorElUser(null)
     };
 
-    const [vendedor, setVendedor] = useState<Vendedor>()
+    const vendedorId = useSelector<TokenState, TokenState['id']>(
+        (state) => state.id
+    )
 
-    const nome = `Olá, ${vendedor?.nomeVendedor}`
+    const [vendedor, setVendedor] = useState<Vendedor>({
+        id: +vendedorId,
+        nomeVendedor: "",
+        usuario: "",
+        senha: "",
+        foto: "",
+        localidade: "",
+        dataDeNascimento: "",
+        tipoDePagamento: ""
+    })
+
+    async function getVendedorById(id: number) {
+        await buscaId(`/vendedor/${id}`, setVendedor, {
+            headers: {
+                Authorization: token
+            }
+        })
+    }
+
+    useEffect(() => {
+        getVendedorById(+vendedorId)
+    }, [])
 
     function goLogout() {
         dispatch(addToken(''))
@@ -51,16 +75,16 @@ function PerfilLogado() {
             draggable: true,
             progress: undefined,
             theme: "colored",
-            });
+        });
         navigate('/login')
     }
 
     return (
         <div className='perfil'>
-            <Typography>{vendedor?.nomeVendedor}</Typography>
+            <Typography>Olá, {vendedor.nomeVendedor}</Typography>
             <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src={vendedor?.foto} />
+                    <Avatar alt="Remy Sharp" src={vendedor.foto} />
                 </IconButton>
             </Tooltip>
             <Menu
@@ -80,14 +104,15 @@ function PerfilLogado() {
                 onClose={handleCloseUserMenu}
             >
                 {navVendedor.map((nav) => (
-                    <MenuItem onClick={handleCloseUserMenu}>
-                        <Link to={nav.link}>
+                    <Link to={nav.link}>
+                        <MenuItem onClick={handleCloseUserMenu}>
                             <Box>
                                 <Typography textAlign="center" style={{ color: 'black' }}>{nav.nome}</Typography>
                             </Box>
-                        </Link>
-                    </MenuItem>
+                        </MenuItem>
+                    </Link>
                 ))}
+
                 <MenuItem onClick={handleCloseUserMenu}>
                     <Box onClick={goLogout}>
                         <Typography textAlign="center">Sair</Typography>
