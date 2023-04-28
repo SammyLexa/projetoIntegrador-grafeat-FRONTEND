@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { TokenState } from '../../../store/tokens/tokensReducer'
 import Categoria from '../../models/Categoria'
 import { buscaId, deleteId } from '../../services/Service'
+import { toast } from 'react-toastify'
 
 function DeletarCategoria() {
     const history = useNavigate()
@@ -17,7 +18,16 @@ function DeletarCategoria() {
 
     useEffect(() => {
         if (token === '') {
-            alert('Você precisa estar logado!')
+            toast.warn('Você precisa estar logado!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             history('/login')
         }
     }, [token])
@@ -43,7 +53,16 @@ function DeletarCategoria() {
                 'Authorization': token
             }
         })
-        alert('Categoria deletada com sucesso!')
+        toast.success('Categoria deletada com sucesso!', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
     }
 
     function nao() {

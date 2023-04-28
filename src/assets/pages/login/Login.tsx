@@ -7,6 +7,7 @@ import VendedorLogin from "../../../components/models/VendedorLogin";
 import { login } from "../../../components/services/Service"
 import { addToken } from "../../../store/tokens/action";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 function Login() {
     const [token, setToken] = useState('')
@@ -48,9 +49,28 @@ function Login() {
         try {
             await login(`/vendedor/logar`, vendedorLogin, setToken);
 
-            alert("Vendedor logado com sucesso!");
+            toast.success('Vendedor logado com sucesso!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
+            
         } catch (error) {
-            alert("Dados do vendedor inconsistentes. Erro ao logar!");
+            toast.error('Dados do vendedor inconsistentes. Erro ao logar!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         }
     }
     return (

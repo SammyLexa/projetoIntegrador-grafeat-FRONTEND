@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { TokenState } from '../../../../store/tokens/tokensReducer';
 import { addToken } from '../../../../store/tokens/action';
 import { Button } from '@material-ui/core';
+import { toast } from 'react-toastify';
 
 const navVendedor = [{
     nome: 'Cadastrar Produtos',
@@ -41,7 +42,16 @@ function PerfilLogado() {
 
     function goLogout() {
         dispatch(addToken(''))
-        alert("Usuário deslogado")
+        toast.success('Usuário deslogado!', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
         navigate('/login')
     }
 
