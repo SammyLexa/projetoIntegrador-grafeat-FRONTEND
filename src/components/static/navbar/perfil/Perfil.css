@@ -1,3 +1,9 @@
+.perfil_vendedor{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .nav_btn{
     display: flex;
     flex-direction: row;
@@ -42,5 +48,6 @@
 
 .perfil{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    margin-right: 1.5rem;
 }

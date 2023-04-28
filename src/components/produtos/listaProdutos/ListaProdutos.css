@@ -33,16 +33,19 @@
 .Card_img {
     width: 100%;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .Card_conteudo{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 1rem;
+    height: 7.5rem;
 }
 
 .Card_titulo{
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     color: white;
 }
@@ -76,9 +79,15 @@
     border-top: 2px solid var(--cor-terciaria);
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 1rem .5rem 0 .5rem;
 }
 
 .nome_criador{
     font-weight: 700;
+}
+
+.acoes{
+    display: flex;
+    justify-content: end;
 }
