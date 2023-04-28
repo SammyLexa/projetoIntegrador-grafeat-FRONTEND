@@ -21,7 +21,6 @@
     background-image: url('../img/banner.jpg');
     background-size: cover;
     background-position: center;
-    background-opacity: 0.5;
     padding: 2rem;
     margin-bottom: 2rem;
   }
@@ -65,4 +64,10 @@
 
   .logo{
     width: 50% !important;
+  }
+
+  .fundoProdutos{
+    margin: 5rem 0rem;
+    background: var(--cor-secundaria);
+	  font-family: var(--fonte-principal) !important;
   }
