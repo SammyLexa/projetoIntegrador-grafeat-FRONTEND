@@ -81,12 +81,15 @@ function PerfilLogado() {
 
     return (
         <div className='perfil'>
-            <Typography>Olá, {vendedor.nomeVendedor}</Typography>
-            <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src={vendedor.foto} />
-                </IconButton>
-            </Tooltip>
+            <div className='perfil_vendedor'>
+                <Typography>Olá, {vendedor.nomeVendedor}</Typography>
+                <Tooltip title="Open settings">
+                    <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                        <Avatar alt="Remy Sharp" src={vendedor.foto} />
+                    </IconButton>
+                </Tooltip>
+            </div>
+
             <Menu
                 sx={{ mt: '45px' }}
                 id="menu-appbar"

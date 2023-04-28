@@ -10,6 +10,7 @@ import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import WifiProtectedSetupIcon from '@mui/icons-material/WifiProtectedSetup';
 import { toast } from 'react-toastify';
+import ProdutoDetalhado from './produtoDetalhado/ProdutoDetalhado';
 
 function ListaProdutos() {
     const [produtos, setProdutos] = useState<Produto[]>([])
@@ -29,7 +30,7 @@ function ListaProdutos() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                });
+            });
             navigate('/login')
         }
     }, [token])
@@ -51,7 +52,9 @@ function ListaProdutos() {
                 produtos.map(produto => (
 
                     <div className='Card_container'>
-                        <img className='Card_img' src={produto.linkFoto} alt="" />
+                        <Link to={`/produtoDetalhado/${produto.id}`}>
+                            <img className='Card_img' src={produto.linkFoto} alt="" />
+                        </Link>
                         <div className='Card_conteudo'>
                             <h1 className='Card_titulo'>{produto.nome}</h1>
                             <p className='Card_descricao'>{produto.descricao}</p>
