@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import VendedorLogin from "../../../components/models/VendedorLogin";
 import { login } from "../../../components/services/Service"
-import { addToken } from "../../../store/tokens/action";
+import { addId, addToken } from "../../../store/tokens/action";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 
@@ -25,7 +25,19 @@ function Login() {
         dataDeNascimento: "",
         tipoDePagamento: "",
         token: ""
-    });
+    })
+
+    const [respVendedorLogin, setRespVendedorLogin] = useState<VendedorLogin>({
+        id: 0,
+        nomeVendedor: "",
+        usuario: "",
+        senha: "",
+        foto: "",
+        localidade: "",
+        dataDeNascimento: "",
+        tipoDePagamento: "",
+        token: ""
+    })
 
     const [carregando, setCarregando] = useState(false)
 
@@ -46,11 +58,21 @@ function Login() {
         }
     }, [token])
 
+    useEffect(() => {
+        if(respVendedorLogin.token !== ''){
+       
+           dispatch(addToken(respVendedorLogin.token))
+           dispatch(addId(respVendedorLogin.id.toString()))
+           navigate('/home')
+       }
+       
+       }, [respVendedorLogin.token])
+
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
             setCarregando(true)
-            await login(`/vendedor/logar`, vendedorLogin, setToken);
+            await login(`/vendedor/logar`, vendedorLogin, setRespVendedorLogin);
 
             toast.success('Vendedor logado com sucesso!', {
                 position: "top-center",

@@ -7,6 +7,7 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 import { buscaId, put, post, busca } from '../../services/Service';
 import Categoria from '../../models/Categoria';
 import { toast } from 'react-toastify';
+import Vendedor from '../../models/Vendedor';
 
 function CadastroProduto() {
     const navigate = useNavigate()
@@ -50,13 +51,30 @@ function CadastroProduto() {
         tamanho: '',
         quantidade: 0,
         linkFoto: '',
-        categoria: null
+        categoria: null,
+        vendedor: null
+    })
+
+    const vendedorId = useSelector<TokenState, TokenState['id']>(
+        (state) => state.id
+    )
+
+    const [vendedor, setVendedor] = useState<Vendedor>({
+        id: +vendedorId,
+        nomeVendedor: "",
+        usuario: "",
+        senha: "",
+        foto: "",
+        localidade: "",
+        dataDeNascimento: "",
+        tipoDePagamento: "",
     })
 
     useEffect(() => {
         setProduto({
             ...produto,
-            categoria: categoria
+            categoria: categoria,
+            vendedor: vendedor
         })
     }, [categoria])
 

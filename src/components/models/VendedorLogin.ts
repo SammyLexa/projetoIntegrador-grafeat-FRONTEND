@@ -7,7 +7,7 @@ interface VendedorLogin {
     localidade: string;
     dataDeNascimento: string;
     tipoDePagamento: string;
-    token?: string| null
+    token: string
 }
 
 export default VendedorLogin;

@@ -62,8 +62,8 @@ function ListaProdutos() {
                             </div>
                         </div>
                         <div className='Card_criador'>
-                            <img src="https://i.postimg.cc/SQBzNQf1/image-avatar.png" alt="avatar" className="small-avatar" />
-                            <p className='Card_descricao'>Criado por <span className='nome_criador'>Jules Wyvern</span></p>
+                            <img src={produto.vendedor?.foto} alt="avatar" className="small-avatar" />
+                            <p className='Card_descricao'>Criado por <span className='nome_criador'>{produto.vendedor?.nomeVendedor}</span></p>
                         </div>
                         <div className='acoes'>
                             <Link to={`/formularioProduto/${produto.id}`} className="text-decorator-none" >
