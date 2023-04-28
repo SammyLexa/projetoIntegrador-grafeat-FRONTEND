@@ -1,20 +1,20 @@
-.form{
+.form {
     display: flex;
     flex-direction: column;
     justify-content: end !important;
     padding-bottom: 10rem;
 }
 
-.form_sumit{
+.form_sumit {
     display: flex;
     flex-direction: column;
 }
 
-.campo{
+.campo {
     width: 60% !important;
     border-radius: 5px;
 }
 
-.form_btn{
+.form_btn {
     width: 60%;
 }

@@ -1,16 +1,84 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -20,37 +88,56 @@ time, mark, audio, video {
 	box-sizing: border-box;
 	text-decoration: none;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
 @font-face {
-    font-family: 'Ubuntu', sans-serif;
-    src: url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap'); 
-  }
+	font-family: 'Ubuntu', sans-serif;
+	src: url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+}
 
-:root{
-	--cor-principal:#423D3D;
+:root {
+	--cor-principal: #423D3D;
 	--cor-secundaria: #5941A9;
 	--cor-terciaria: #EB2474;
 	--cor-quartaria: #41EAD4;
@@ -58,8 +145,61 @@ table {
 	--fonte-principal: 'Ubuntu', sans-serif;
 }
 
-body{
-	background: rgb(66,61,61);
-	background: linear-gradient(180deg, rgba(66,61,61,1) 15%, rgba(89,65,169,1) 53%, rgba(235,36,116,1) 85%);;
+body {
+	background: rgb(66, 61, 61);
+	background: linear-gradient(180deg, rgba(66, 61, 61, 1) 15%, rgba(89, 65, 169, 1) 53%, rgba(235, 36, 116, 1) 85%);
+	;
 	font-family: var(--fonte-principal);
 }
+
+.dots-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+}
+
+.dot {
+	height: 20px;
+	width: 20px;
+	margin-right: 10px;
+	border-radius: 10px;
+	background-color: #b3d4fc;
+	animation: pulse 1.5s infinite ease-in-out;
+}
+
+.dot:last-child {
+	margin-right: 0;
+}
+
+.dot:nth-child(1) {
+	animation-delay: -0.3s;
+}
+
+.dot:nth-child(2) {
+	animation-delay: -0.1s;
+}
+
+.dot:nth-child(3) {
+	animation-delay: 0.1s;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.8);
+		background-color: #b3d4fc;
+		box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+	}
+
+	50% {
+		transform: scale(1.2);
+		background-color: #6793fb;
+		box-shadow: 0 0 0 10px rgba(178, 212, 252, 0);
+	}
+
+	100% {
+		transform: scale(0.8);
+		background-color: #b3d4fc;
+		box-shadow: 0 0 0 0 rgba(178, 212, 252, 0.7);
+	}
