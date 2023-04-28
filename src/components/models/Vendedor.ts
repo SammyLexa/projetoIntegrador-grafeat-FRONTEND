@@ -4,7 +4,7 @@ interface Vendedor {
     usuario: string;
     senha: string;
     foto: string;
-    localidade?: string|null;
+    localidade: string;
     dataDeNascimento: string;
     tipoDePagamento: string;
     
