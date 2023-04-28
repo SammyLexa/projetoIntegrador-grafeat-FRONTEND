@@ -9,6 +9,7 @@ import { busca } from '../../services/Service';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import WifiProtectedSetupIcon from '@mui/icons-material/WifiProtectedSetup';
+import { toast } from 'react-toastify';
 
 function ListaProdutos() {
     const [produtos, setProdutos] = useState<Produto[]>([])
@@ -19,7 +20,16 @@ function ListaProdutos() {
 
     useEffect(() => {
         if (token == '') {
-            alert("Você precisa estar logado")
+            toast.warn('Você precisa estar logado', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             navigate('/login')
         }
     }, [token])

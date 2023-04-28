@@ -7,7 +7,8 @@ import './CadastrarUsuario.css'
 import VendedorLogin from "../../../components/models/VendedorLogin";
 import {cadastroVendedor, login} from "../../../components/services/Service"
 import Vendedor from "../../../components/models/Vendedor";
-import './CadastrarUsuario.css'
+import './CadastrarUsuario.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
@@ -63,13 +64,40 @@ function CadastrarVendedor(){
         if (confirmarSenha === vendedor.senha ) {
             try {
                 await cadastroVendedor('/vendedor/cadastrar', vendedor, setVendedorResult)
-                alert('Usuário cadastrado com sucesso')
+                toast.success('Usuário cadastrado com sucesso!', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    });
             } catch (error) {
-                alert('Por favor, verifique os campos')
+                toast.warn('Por favor, verifique os campos', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: true,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    });
                 console.log(error)
             }
         } else {
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+            toast.warn('Dados inconsistentes. Favor verificar as informações de cadastro.', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         }
     }
 

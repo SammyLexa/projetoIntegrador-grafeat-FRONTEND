@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { buscaId, put, post } from '../../services/Service';
+import { toast } from 'react-toastify';
 
 function CadastroCategoria() {
     let navigate = useNavigate();
@@ -21,7 +22,16 @@ function CadastroCategoria() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.warn('Você precisa estar logado!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             navigate("/login")
 
         }
@@ -60,14 +70,32 @@ function CadastroCategoria() {
                     'Authorization': token
                 }
             })
-            alert('Categoria atualizada com sucesso');
+            toast.success('Categoria atualizada com sucesso!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         } else {
             await post(`/categorias`, categoria, setCategoria, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Categoria cadastrada com sucesso');
+            toast.success('Categoria cadastrada com sucesso!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         }
         back()
 

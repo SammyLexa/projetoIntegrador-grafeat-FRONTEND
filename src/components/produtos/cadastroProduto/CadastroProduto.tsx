@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { buscaId, put, post, busca } from '../../services/Service';
 import Categoria from '../../models/Categoria';
+import { toast } from 'react-toastify';
 
 function CadastroProduto() {
     const navigate = useNavigate()
@@ -17,7 +18,16 @@ function CadastroProduto() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.warn('Você precisa estar logado!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             navigate("/login")
 
         }
@@ -88,14 +98,32 @@ function CadastroProduto() {
                     'Authorization': token
                 }
             })
-            alert('Produto atualizado com sucesso');
+            toast.success('Produto atualizado com sucesso!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         } else {
             await post(`/produtos`, produto, setProduto, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Produto cadastrado com sucesso');
+            toast.success('Produto cadastrado com sucesso!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         }
         back()
 

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { busca } from '../../services/Service';
 import './ListaCategoria.css'
+import { toast } from 'react-toastify';
 
 function ListaCategorias() {
     const [categorias, setCategorias] = useState<Categoria[]>([])
@@ -14,12 +15,21 @@ function ListaCategorias() {
         (state) => state.token
     );
 
-    /*useEffect(() => {
+    useEffect(() => {
         if (token == '') {
-            alert("Você precisa estar logado")
+            toast.warn('Você precisa estar logado!', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             navigate('/login')
         }
-    }, [token])*/
+    }, [token])
 
     async function getCategoria() {
         await busca("/categorias", setCategorias, {
