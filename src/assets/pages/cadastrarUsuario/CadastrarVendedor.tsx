@@ -47,7 +47,6 @@ function CadastrarVendedor() {
         { value: 'cheque', label: 'Cheque' },
     ];
 
-    // Renderize as opções como MenuItem
     const renderOptions = () => {
         return options.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -68,6 +67,12 @@ function CadastrarVendedor() {
         setConfirmarSenha(e.target.value)
     }
 
+    function formatarData(data: any) {
+        var partes = data.split('/');
+        var novaData = partes[2] + '-' + partes[1] + '-' + partes[0];
+        return novaData;
+      }
+
 
     function updatedModel(e: ChangeEvent<HTMLInputElement>) {
         setVendedor({
@@ -78,6 +83,8 @@ function CadastrarVendedor() {
     }
     async function onSubmit(event: ChangeEvent<HTMLFormElement>) {
         event.preventDefault()
+         var novaData = formatarData(vendedor.dataDeNascimento);
+         vendedor.dataDeNascimento = novaData;
         if (confirmarSenha === vendedor.senha) {
             try {
                 setCarregando(true)
