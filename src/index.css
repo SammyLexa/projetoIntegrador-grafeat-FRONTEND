@@ -146,9 +146,7 @@ table {
 }
 
 body {
-	background: rgb(66, 61, 61);
-	background: linear-gradient(180deg, rgba(66, 61, 61, 1) 15%, rgba(89, 65, 169, 1) 53%, rgba(235, 36, 116, 1) 85%);
-	;
+	background: #535353;
 	font-family: var(--fonte-principal);
 }
 

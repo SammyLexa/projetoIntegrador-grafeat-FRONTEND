@@ -10,7 +10,7 @@ import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import WifiProtectedSetupIcon from '@mui/icons-material/WifiProtectedSetup';
 import { toast } from 'react-toastify';
-import ProdutoDetalhado from './produtoDetalhado/ProdutoDetalhado';
+
 
 function ListaProdutos() {
     const [produtos, setProdutos] = useState<Produto[]>([])
@@ -35,7 +35,7 @@ function ListaProdutos() {
         }
     }, [token])
 
-    async function getProduto() {
+     async function getProduto() {
         await busca("/produtos", setProdutos, {
             headers: {
                 'Authorization': token

@@ -5,11 +5,20 @@
 .img{
     width: 70%;
     padding: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .navbar{
-    background-color: transparent !important;
+    background-color: #423D3D !important;
     box-shadow: none !important;
+}
+
+.navbar::after{
+    content: '';
+    width: 70%;
+    margin: auto;
+    height: .1rem;
+    background-color: #EB2474;
 }
 
 .navbar_desktop{
