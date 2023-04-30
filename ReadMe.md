@@ -83,7 +83,6 @@ MARCELO NERI (Brasil). Mapa da Nova Pobreza. Disponível em: https://cps.fgv.br/
 
 - Deleta Categoria ![icons8-remover-24](https://user-images.githubusercontent.com/123910027/232768794-fa0f1620-c42a-4abb-8c71-db575fa72b02.png)
 
-- Deleta Vendedor ![icons8-remover-24](https://user-images.githubusercontent.com/123910027/232768804-a949cade-ebb0-4783-8d06-9628ecc69b88.png)
 ## Ferramentas, Linguagens, Frameworks e Blibiotecas:
 <br>
 
