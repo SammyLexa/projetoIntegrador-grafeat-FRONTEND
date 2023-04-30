@@ -1,18 +1,42 @@
-.box1{
-    background-color: #EB2474;
-    height: 120px;
+.container_footer{
+    background-color: #423D3D;
 }
 
-.box2{
-    background-color: #5941A9;
-    height: 60px;
+.footer{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+    padding: 2rem 0 2rem 0;
+}
+
+.footer_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 1rem;
+    width: 25%;
+}
+
+.footer_lista{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: white;
+}
+
+.footer_titulo{
+    color: var(--cor-terciaria);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+a{
+    text-align: center;
 }
 
 .redes{
-   width:2.5vw !important;
-    color: black;
-}
-
-.textos{
-   color: white;
+    width: 10%;
+    
 }

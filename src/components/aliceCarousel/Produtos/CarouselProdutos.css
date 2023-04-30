@@ -1,0 +1,19 @@
+.carousel{
+    width: 70%;
+    height: 90vh;
+    margin: auto;
+    display: flex;
+}
+
+.carouselItem{
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.carouselProduto{
+    padding: 2rem;
+    
+}
+

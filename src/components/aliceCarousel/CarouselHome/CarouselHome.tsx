@@ -10,11 +10,11 @@ import './CarouselHome.css'
 };*/
 
 const items = [
-    <img className='bannerHome' src="https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/carrossel1?updatedAt=1682692502691" alt="" />,
-    <img className='bannerHome' src="https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/carrossel2?updatedAt=1682692520499" alt="" />,
-    <img className='bannerHome' src="https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/carrossel3?updatedAt=1682692537060" alt="" />,
-    <img className='bannerHome' src="https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/carrossel4?updatedAt=1682692557761" alt="" />,
-    <img className='bannerHome' src="https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/carrossel5?updatedAt=1682692573523" alt="" />,
+    <div className='items_img1'></div>,
+    <div className='items_img2'></div>,
+    <div className='items_img3'></div>,
+    <div className='items_img4'></div>,
+    <div className='items_img5'></div>
 ];
 
 const CarouselHome = () => (
