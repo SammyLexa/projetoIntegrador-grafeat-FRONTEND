@@ -133,7 +133,7 @@ function CadastrarVendedor() {
             <Grid container alignItems={'center'}>
                 <Grid item xs={6} justifyContent='center'>
                     <Box display='flex' justifyContent={'center'}>
-                        <Grid item xs={6}>
+                        <Grid item xs={12} md={6}>
                             <form onSubmit={onSubmit}>
                                 <Typography variant='h4' align='center' gutterBottom fontWeight='bold' className='tituloCadastrar'>
                                     Cadastre-se
@@ -245,8 +245,8 @@ function CadastrarVendedor() {
 
                     </Box>
                 </Grid>
-                <Grid item xs={6}>
-                    <img src="https://ik.imagekit.io/wall90gifs/Grafeat/Making_art-pana.png?updatedAt=1681498159239" alt="Imagem da tela de cadastro" className='fotoCadastrarUsuario' />
+                <Grid item xs={12} md={6}>
+                    <img src="https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/bem_vinde_.png?updatedAt=1682719119731" alt="Imagem da tela de cadastro" className='fotoCadastrarUsuario' />
                 </Grid>
             </Grid>
 
