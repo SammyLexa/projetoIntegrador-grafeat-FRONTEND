@@ -8,10 +8,11 @@ import ListaProdutos from '../../../components/produtos/listaProdutos/ListaProdu
 const Home: React.FC = () => {
   return (
     <Container maxWidth="md" className="container">
-
-      <Typography variant="h1" align="center" gutterBottom style={{ color: "white" }}>
-        Bem-vindo a Loja <img className='logo' src="https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/grafeat-logo-.png?updatedAt=1681816793769" alt="Logo do Grafeat" />
+      <section className='sessãoBV'>
+      <Typography variant="h1" align="center" gutterBottom className='textoBV' >
+        Bem-vindo ao Ecommerce<img className='logo' src="https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/grafeat-logo-.png?updatedAt=1681816793769" alt="Logo do Grafeat" />
       </Typography>
+      </section>
 
       <Typography variant="subtitle1" align="center" gutterBottom style={{ color: "white" }}>
         Confira nossos produtos incríveis e aproveite as ofertas!

@@ -142,7 +142,13 @@ table {
 	--cor-terciaria: #EB2474;
 	--cor-quartaria: #41EAD4;
 	--cor-quintaria: #FBFF12;
+
+
 	--fonte-principal: 'Ubuntu', sans-serif;
+	--fonte-destaque: 'Don Graffiti', sans-serif;
+
+	--tamanho-titulo: 2.3rem;
+	--tamanho-parageafo: 1.5rem;
 }
 
 body {

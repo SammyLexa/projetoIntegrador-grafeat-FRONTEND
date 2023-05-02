@@ -63,11 +63,17 @@
   }
 
   .logo{
-    width: 50% !important;
+    width: 70% !important;
   }
 
   .fundoProdutos{
     margin: 5rem 0rem;
     background: var(--cor-secundaria);
 	  font-family: var(--fonte-principal) !important;
+  }
+
+  .textoBV{
+    color: var(--cor-secundaria) !important;
+    font-family: 'Don Graffiti', sans-serif !important;
+    font-size: 5.3rem !important;
   }
