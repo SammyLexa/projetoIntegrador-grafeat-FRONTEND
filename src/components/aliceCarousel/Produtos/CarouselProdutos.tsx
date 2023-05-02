@@ -30,53 +30,34 @@ function CarouselProdutos() {
         getProduto()
     }, [produtos.length])
     
-    const items = [
+    const items = produtos.map((produto) => (
         <div className='carouselItem'>
             <div className='carouselProduto'>
-                <Link to={`/produtoDetalhado/${produtos[5].id}`}>
-                    <img className='Card_img' src={produtos[5].linkFoto} alt="" />
+                <Link to={`/produtoDetalhado/${produto.id}`}>
+                    <img className='Card_img' src={produto.linkFoto} alt="" />
                 </Link>
                 <div className='Card_conteudo'>
-                    <h1 className='Card_titulo'>{produtos[5].nome}</h1>
-                    <p className='Card_descricao'>{produtos[5].descricao}</p>
+                    <h1 className='Card_titulo'>{produto.nome}</h1>
+                    <p className='Card_descricao'>{produto.descricao}</p>
                     <div className='Card_info'>
                         <AttachMoneyIcon style={{ color: 'white' }} />
-                        <h2 className='Card_valor'>{`R$ ${produtos[5].preco}`}</h2>
+                        <h2 className='Card_valor'>{`R$ ${produto.preco}`}</h2>
                     </div>
                 </div>
                 <div className='Card_criador'>
-                    <img src={produtos[5].vendedor?.foto} alt="avatar" className="small-avatar" />
-                    <p className='Card_descricao'>Criado por <span className='nome_criador'>{produtos[5].vendedor?.nomeVendedor}</span></p>
-                </div>
-            </div>
-        </div>,
-        <div className='carouselItem'>
-            <div className='carouselProduto'>
-                <Link to={`/produtoDetalhado/${produtos[10].id}`}>
-                    <img className='Card_img' src={produtos[10].linkFoto} alt="" />
-                </Link>
-                <div className='Card_conteudo'>
-                    <h1 className='Card_titulo'>{produtos[10].nome}</h1>
-                    <p className='Card_descricao'>{produtos[10].descricao}</p>
-                    <div className='Card_info'>
-                        <AttachMoneyIcon style={{ color: 'white' }} />
-                        <h2 className='Card_valor'>{`R$ ${produtos[10].preco}`}</h2>
-                    </div>
-                </div>
-                <div className='Card_criador'>
-                    <img src={produtos[10].vendedor?.foto} alt="avatar" className="small-avatar" />
-                    <p className='Card_descricao'>Criado por <span className='nome_criador'>{produtos[10].vendedor?.nomeVendedor}</span></p>
+                    <img src={produto.vendedor?.foto} alt="avatar" className="small-avatar" />
+                    <p className='Card_descricao'>Criado por <span className='nome_criador'>{produto.vendedor?.nomeVendedor}</span></p>
                 </div>
             </div>
         </div>
-    ]
+    ))
 
     const responsive = {
         0: {
             items: 2,
         },
         512: {
-            items: 8,
+            items: 4,
         },
     };
 
@@ -89,7 +70,7 @@ function CarouselProdutos() {
                 animationDuration={1500}
                 disableDotsControls
                 disableButtonsControls
-
+                responsive={responsive}
                 items={items}
                 autoPlay
             />

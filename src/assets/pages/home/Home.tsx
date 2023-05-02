@@ -27,7 +27,7 @@ const Home: React.FC = () => {
       </h2>
 
       <Grid justifyContent='center' alignContent='center' alignItems='center' className='fundoProdutos'>
-        <ListaProdutos/>
+        <CarouselProdutos/>
       </Grid>
     </Box>
   );
