@@ -19,23 +19,7 @@ function ListaProdutos() {
         (state) => state.token
     )
 
-    useEffect(() => {
-        if (token == '') {
-            toast.warn('Você precisa estar logado', {
-                position: "top-center",
-                autoClose: 2000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
-            navigate('/login')
-        }
-    }, [token])
-
-     async function getProduto() {
+    async function getProduto() {
         await busca("/produtos", setProdutos, {
             headers: {
                 'Authorization': token
@@ -68,7 +52,7 @@ function ListaProdutos() {
                             <img src={produto.vendedor?.foto} alt="avatar" className="small-avatar" />
                             <p className='Card_descricao'>Criado por <span className='nome_criador'>{produto.vendedor?.nomeVendedor}</span></p>
                         </div>
-                        <div className='acoes'>
+                        {(token != "") ? (<div className='acoes'>
                             <Link to={`/formularioProduto/${produto.id}`} className="text-decorator-none" >
                                 <div>
                                     <IconButton aria-label="update">
@@ -83,7 +67,7 @@ function ListaProdutos() {
                                     </IconButton>
                                 </div>
                             </Link>
-                        </div>
+                        </div>) : ""}
                     </div>
                 ))
             }

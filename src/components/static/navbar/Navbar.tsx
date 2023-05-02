@@ -90,13 +90,14 @@ function Navbar() {
                                     </Typography>
                                 </Box>
                             </Link>
-                            <Link to='/categorias'>
+                            {(token != "") ? (<Link to='/categorias'>
                                 <Box mx={1} className='cursor'>
                                     <Typography variant="h6" style={{ color: 'white' }}>
                                         Categorias
                                     </Typography>
                                 </Box>
-                            </Link>
+                            </Link>) : ""}
+                            
                         </Grid>
 
                         {/* Menu App */}
@@ -154,8 +155,7 @@ function Navbar() {
 
                         {/* Perfil */}
                         <Grid md={3} sx={{ flexGrow: 0 }}>
-                            {(token != "") && (<PerfilLogado />)}
-                            {(token == "") && (<PerfilDeslogado />)}
+                            {(token != "") ? (<PerfilLogado />) : (<PerfilDeslogado />)}
                         </Grid>
                     </Toolbar>
                 </Container>
