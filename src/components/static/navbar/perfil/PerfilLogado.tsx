@@ -16,6 +16,9 @@ const navVendedor = [{
 }, {
     nome: 'Cadastrar Categoria',
     link: '/formularioCategoria'
+},{
+    nome: 'Perfil',
+    link: '/perfil'
 }];
 
 function PerfilLogado() {

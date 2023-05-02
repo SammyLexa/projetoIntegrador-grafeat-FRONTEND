@@ -1,6 +1,35 @@
+.items_img1{
+    height: 95vh;
+    background-image: url(https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/carrossel1?updatedAt=1682692502691);
+    background-size: cover;
+    background-position: 50%;
+}
+
+.items_img2{
+    height: 95vh;
+    background-image: url(https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/carrossel2?updatedAt=1682692520499);
+    background-size: cover;
+}
+
+.items_img3{
+    height: 95vh;
+    background-image: url(https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/carrossel3?updatedAt=1682692537060);
+    background-size: cover;
+}
+
+.items_img4{
+    height: 95vh;
+    background-image: url(https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/carrossel4?updatedAt=1682692557761);
+    background-size: cover;
+}
+
+.items_img5{
+    height: 95vh;
+    background-image: url(https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/carrossel5?updatedAt=1682692573523);
+    background-size: cover;
+}
+
 .bannerHome{
-    width:100% !important;
-    height: 100% !important;
     align-items: center;
     justify-content: center;
 }
