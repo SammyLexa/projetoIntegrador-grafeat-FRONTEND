@@ -1,19 +1,17 @@
-.carousel{
-    width: 70%;
-    height: 90vh;
+.carousel {
+    width: 90%;
+    height: 100%;
     margin: auto;
     display: flex;
 }
 
-.carouselItem{
-    width: 30%;
+.carouselItem {
+    width: 50%;
     margin: auto;
     display: flex;
     flex-direction: row;
 }
 
-.carouselProduto{
-    padding: 2rem;
-    
+.carouselProduto {
+    padding: 2rem 0;
 }
-
