@@ -8,8 +8,7 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 import { busca } from '../../services/Service';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import WifiProtectedSetupIcon from '@mui/icons-material/WifiProtectedSetup';
-import { toast } from 'react-toastify';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 function ListaProdutos() {
@@ -31,7 +30,11 @@ function ListaProdutos() {
         getProduto()
     }, [produtos.length])
     return (
-        <div className='Card'>
+        <div className='page_produto'>
+            <div className='banner_produto'>
+                <h1 className='banner_produto-titulo'>Produtos</h1>
+            </div>
+            <div className='Card'>
             {
                 produtos.map(produto => (
 
@@ -40,11 +43,11 @@ function ListaProdutos() {
                             <img className='Card_img' src={produto.linkFoto} alt="" />
                         </Link>
                         <div className='Card_conteudo'>
-                            <h1 className='Card_titulo'>{produto.nome}</h1>
+                            <h2 className='Card_titulo'>{produto.nome}</h2>
                             <p className='Card_descricao'>{produto.descricao}</p>
                             <div className='Card_info'>
                                 <AttachMoneyIcon style={{ color: 'white' }} />
-                                <h2 className='Card_valor'>{`R$ ${produto.preco}`}</h2>
+                                <h3 className='Card_valor'>{`R$ ${produto.preco}`}</h3>
 
                             </div>
                         </div>
@@ -56,7 +59,7 @@ function ListaProdutos() {
                             <Link to={`/formularioProduto/${produto.id}`} className="text-decorator-none" >
                                 <div>
                                     <IconButton aria-label="update">
-                                        <WifiProtectedSetupIcon />
+                                        <EditIcon />
                                     </IconButton>
                                 </div>
                             </Link>
@@ -71,6 +74,7 @@ function ListaProdutos() {
                     </div>
                 ))
             }
+            </div>
         </div>
     )
 }

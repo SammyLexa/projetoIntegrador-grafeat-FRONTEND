@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material'
+import { Box, Button, IconButton } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Categoria from '../../models/Categoria';
@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { busca } from '../../services/Service';
 import './ListaCategoria.css'
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import { toast } from 'react-toastify';
 
 function ListaCategorias() {
@@ -26,7 +28,7 @@ function ListaCategorias() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
-                });
+            });
             navigate('/login')
         }
     }, [token])
@@ -44,32 +46,40 @@ function ListaCategorias() {
     }, [categorias.length])
 
     return (
-        <>
-            {
-                categorias.map(categoria => (
+        <div className='page_categoria'>
+            <Box className='banner'>
+                <div className='banner_img'>
+                    <h1 className='banner_titulo'>Categorias</h1>
+                </div>
+            </Box>
+            <Box className='cards'>
+                {
+                    categorias.map(categoria => (
 
-                    <Box className='card_container'>
-                        <h2 className='card_categoria'>Categoria</h2>
-                        <Box>
-                            <h1 className='card_titulo'>{categoria.nomeCategoria}</h1>
-                            <p className='card_texto'>{categoria.descricaoCategoria}</p>
+                        <Box className='card_container'>
+                            <h3 className='card_categoria'>Categoria</h3>
+                            <Box>
+                                <h2 className='card_titulo'>{categoria.nomeCategoria}</h2>
+                                <p className='card_texto'>{categoria.descricaoCategoria}</p>
+                            </Box>
+                            <Box>
+                                <Link to={`/formularioCategoria/${categoria.id}`}>
+                                <IconButton aria-label="delete">
+                                        <EditIcon />
+                                    </IconButton>
+                                </Link>
+                                <Link to={`/deletarCategoria/${categoria.id}`}>
+                                    <IconButton aria-label="delete">
+                                        <DeleteIcon />
+                                    </IconButton>
+                                </Link>
+                            </Box>
                         </Box>
-                        <Box>
-                            <Link to={`/formularioCategoria/${categoria.id}`}>
-                                <Button className='botao'>
-                                    Editar
-                                </Button>
-                            </Link>
-                            <Link to={`/deletarCategoria/${categoria.id}`}>
-                                <Button className='botao-deletar'>
-                                    Deletar
-                                </Button>
-                            </Link>
-                        </Box>
-                    </Box>
-                ))
-            }
-        </>
+
+                    ))
+                }
+            </Box>
+        </div>
     )
 }
 
