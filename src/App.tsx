@@ -19,6 +19,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProdutoDetalhado from './components/produtos/listaProdutos/produtoDetalhado/ProdutoDetalhado';
 import PerfilVendedor from './components/perfil/PerfilVendedor';
+import FaqAjuda from './assets/pages/faq/FaqAjuda';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
         <Navbar />
         <div style={{ minHeight: '100vh' }}>
           <Routes> // Antigo Switch
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Home />} />
 
             <Route path="/login" element={<Login />} />
 
@@ -41,6 +42,8 @@ function App() {
             <Route path="/produtos" element={<ListaProdutos />} />
 
             <Route path="/categorias" element={<ListaCategorias />} />
+
+            <Route path="/faq-ajuda" element={<FaqAjuda/>} />
 
             <Route path="/formularioProduto" element={<CadastroProduto />} />
 

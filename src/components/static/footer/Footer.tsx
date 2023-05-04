@@ -30,7 +30,7 @@ function Footer() {
                     <h2 className='footer_titulo'>Cliente</h2>
                     <ul className='footer_lista'>
                         <li><Link to="/produtos" style={{color: 'white'}}>Produtos</Link></li>
-                        <li>FAQ</li>
+                        <Link to='/faq-ajuda' style={{color: 'white'}}><li>FAQ</li></Link>
                     </ul>
                 </Box>
             </Box>

@@ -97,6 +97,13 @@ function Navbar() {
                                     </Typography>
                                 </Box>
                             </Link>) : ""}
+                            <Link to='/faq-ajuda'>
+                                <Box mx={1} className='cursor'>
+                                    <Typography variant="h6" style={{ color: 'white' }}>
+                                        FAQ e Ajuda
+                                    </Typography>
+                                </Box>
+                            </Link>
                             
                         </Grid>
 

@@ -1,0 +1,67 @@
+.banner_faq{
+    background-image: url(https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/faqajuda.jpg?updatedAt=1683157548159);
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    height: 90vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.banner_faq-titulo{
+    color: #fff !important;
+    background-color: #00000052 !important;
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 8rem !important;
+    font-weight: 700 !important;
+}
+
+.video{
+    width: 50%;
+    height: 100%;
+}
+
+.container_acordiao{
+    margin: 2rem 0rem !important;
+}
+
+
+.delete{
+    color: red !important;
+}
+
+.atualizar{
+    color: orangered !important;
+}
+
+.cadastrar{
+    color: green !important ;
+}
+
+.descricao{
+    font-weight: 900 !important;
+    color: #fff !important;
+}
+
+.container_acordiao-titulo{
+    font-weight: 900 !important;
+    color: #fff !important;
+    text-align: center !important;
+    font-size: var(--tamanho-titulo) !important;
+    padding-bottom: 2rem;
+}
+
+.acordiao{
+    background-color:#423D3D !important;
+    border: #fff 1px solid !important;
+}
+
+.texto-Faq{
+    font-weight: 900 !important;
+    color: #fff !important;
+    text-align: center !important;
+    font-size: var(--tamanho-paragrafo) !important;
+    padding-bottom: 2rem;
+}
