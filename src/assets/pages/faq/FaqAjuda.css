@@ -1,5 +1,5 @@
 .banner_faq{
-    background-image: url(https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/faqajuda.jpg?updatedAt=1683157548159);
+    background-image: url(https://ik.imagekit.io/grafeat/ilustra%C3%A7%C3%B5es/graffiti-4086097_640.jpg?updatedAt=1683157812671);
     background-size: cover !important;
     background-position: center !important;
     background-attachment: fixed !important;
@@ -59,9 +59,14 @@
 }
 
 .texto-Faq{
-    font-weight: 900 !important;
     color: #fff !important;
     text-align: center !important;
     font-size: var(--tamanho-paragrafo) !important;
     padding-bottom: 2rem;
+}
+
+.underline{
+    text-decoration: underline !important;
+    color: var(--cor-quartaria) !important;
+    font-weight: 900 !important;
 }

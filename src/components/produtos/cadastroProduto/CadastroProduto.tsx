@@ -160,7 +160,7 @@ function CadastroProduto() {
             <Container maxWidth="sm" >
 
                 <form onSubmit={onSubmit} >
-                    <Typography variant="h3" color="textSecondary" component="h1" align="center" >Cadastrar ou Atualizar Produto</Typography>
+                    <Typography variant="h3" color="textSecondary" component="h1" align="center" >{produto.id !== 0 ? 'Atualizar Produto' : 'Cadastrar Produto' }</Typography>
                     <TextField
                         error={produto.nome.length < 3 && produto.nome.length > 0}
                         helperText={produto.nome.length < 3 && produto.nome.length > 0 ? 'o campo nome precisa ser preenchido' : ''}
@@ -222,7 +222,7 @@ function CadastroProduto() {
                                     <div className="dot"></div>
                                     <div className="dot"></div>
                                 </section>
-                            ) : ('Cadastrar')}
+                            ) : ('Salvar')}
                         </Button>
                     </FormControl>
                 </form>

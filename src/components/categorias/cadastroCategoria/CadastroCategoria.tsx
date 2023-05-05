@@ -113,7 +113,7 @@ function CadastroCategoria() {
             <Grid marginTop={12} >
                 <Container maxWidth="sm" className="topo">
                     <form onSubmit={onSubmit}>
-                        <Typography variant="h3" color="textSecondary" component="h1" align="center" > Editar ou Cadastrar categoria</Typography>
+                        <Typography variant="h3" color="textSecondary" component="h1" align="center" >{categoria.id !== 0 ? 'Atualizar Categoria' : 'Cadastrar Categoria' }</Typography>
                         <TextField
                             error={categoria.nomeCategoria.length < 3 && categoria.nomeCategoria.length > 0}
                             helperText={categoria.nomeCategoria.length < 3 && categoria.nomeCategoria.length > 0 ? 'o campo nome precisa ser preenchido' : ''}
@@ -129,7 +129,7 @@ function CadastroCategoria() {
                                             <div className="dot"></div>
                                             <div className="dot"></div>
                                         </section>
-                                    ) : ('Cadastrar')}
+                                    ) : ('Salvar')}
                         </Button>
                     </form>
                 </Container>

@@ -96,3 +96,19 @@
     font-family: 'Don Graffiti', sans-serif !important;
     font-size: 5.3rem !important;
   }
+
+  .fundoOferta{
+    background-color: #FBFF12 !important;
+    justify-content: center !important;
+    border: red dashed 10px !important;
+    margin-top: 2rem !important;
+  }
+
+  .ofertaImagem{
+    width: 50%;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: auto 0 !important;
+  }
+
