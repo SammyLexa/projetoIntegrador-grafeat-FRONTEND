@@ -114,11 +114,12 @@ function CadastroCategoria() {
                 <Container maxWidth="sm" className="topo">
                     <form onSubmit={onSubmit}>
                         <Typography variant="h3" color="textSecondary" component="h1" align="center" >{categoria.id !== 0 ? 'Atualizar Categoria' : 'Cadastrar Categoria' }</Typography>
-                        <TextField
+                        <TextField 
+                            style={{ backgroundColor: "#ffffff25" }}
                             error={categoria.nomeCategoria.length < 3 && categoria.nomeCategoria.length > 0}
                             helperText={categoria.nomeCategoria.length < 3 && categoria.nomeCategoria.length > 0 ? 'o campo nome precisa ser preenchido' : ''}
                             required value={categoria.nomeCategoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="nomeCategoria" label="Nome da Categoria" variant="outlined" name="nomeCategoria" margin="normal" fullWidth />
-                        <TextField value={categoria.descricaoCategoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricaoCategoria" label="Descrição da Categoria" variant="outlined" name="descricaoCategoria" margin="normal" fullWidth />
+                        <TextField style={{ backgroundColor: "#ffffff25" }} value={categoria.descricaoCategoria} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCategoria(e)} id="descricaoCategoria" label="Descrição da Categoria" variant="outlined" name="descricaoCategoria" margin="normal" fullWidth />
                         <Button disabled={categoria.nomeCategoria.length < 3 || carregando} 
                             type="submit" variant="contained" className='botao'>
                             {carregando ? (
