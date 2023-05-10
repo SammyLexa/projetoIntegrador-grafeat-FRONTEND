@@ -30,7 +30,11 @@ function CarouselProdutos() {
         getProduto()
     }, [produtos.length])
     
-    const items = produtos.map((produto) => (
+
+
+    const items = 
+    produtos.filter(filtro => filtro.preco <= 60).map((produto) => (
+
         <div className='carouselItem'>
             <div className='carouselProduto'>
                 <Link to={`/produtoDetalhado/${produto.id}`}>
